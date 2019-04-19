@@ -1,0 +1,211 @@
+<resources>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="title_activity_launch_screen">SMARTFLAT Viewer</string>
+    <string name="title_activity_main">SMARTFLAT Viewer</string>
+    <string name="title_activity_settings">Настройки приложения</string>
+    <string name="app_name">SMARTFLAT Viewer</string>
+    <string name="login_title">Защита запуска</string>
+    <string name="login_summary">Код для запуска приложения. При пустом значении код запрашиваться не будет.</string>
+    <string name="start_screen_first">первая локация в списке</string>
+    <string name="start_screen_last">последняя открытая локация</string>
+    <string name="prefs_title">Защита настроек</string>
+    <string name="prefs_summary">Код для входа в режим настроек. При пустом значении код запрашиваться не будет.</string>
+    <string name="start_screen">Стартовый экран</string>
+    <string name="start_screen_summary">Какой экран показывать при запуске приложения</string>
+    <string name="exit_title">Подтверждение выхода</string>
+    <string name="exit_summary">Запрашивать ли подстверждение при попытке закрыть приложение?</string>
+    <string name="external_ip_title">Альтернативный IP</string>
+    <string name="external_IP_summary">IP для подключения через Интернет</string>
+    <string name="error_ip_message">Не удаётся установить соединение с сервером. Возможно сервер отключён от локальной сети или в настройках приложения указан неверный IP-адрес сервера.</string>
+    <string name="security_code_title">Код безопасности</string>
+    <string name="security_code_summary">Необходим для авторизации при подключении к мастер-контроллеру.</string>
+    <string name="fire_title">Защита управления</string>
+    <string name="fire_summary">Код для управления защищёнными устройствами. При пустом значении код запрашиваться не будет.</string>
+    <string name="code_hint">Введите числовой код</string>
+    <string name="mobileTitle">Использовать мобильный интернет</string>
+    <string name="mobileSummary">Использовать ли мобильный интернет, если сеть WiFi не доступна?</string>
+    <string name="title_activity_login">Ввод кода:</string>
+
+    <!-- Strings related to login -->
+    <string name="action_cancel">Отмена</string>
+    <string name="action_sign_in">ОК</string>
+    <string name="action_settings">Настройки</string>
+    <string name="error_incorrect_password">Неверный код</string>
+    <string name="title_activity_log">LogActivity</string>
+    <string name="large_text">
+        "Material is the metaphor.\n\n"
+
+        "A material metaphor is the unifying theory of a rationalized space and a system of motion."
+        "The material is grounded in tactile reality, inspired by the study of paper and ink, yet "
+        "technologically advanced and open to imagination and magic.\n"
+        "Surfaces and edges of the material provide visual cues that are grounded in reality. The "
+        "use of familiar tactile attributes helps users quickly understand affordances. Yet the "
+        "flexibility of the material creates new affordances that supercede those in the physical "
+        "world, without breaking the rules of physics.\n"
+        "The fundamentals of light, surface, and movement are key to conveying how objects move, "
+        "interact, and exist in space and in relation to each other. Realistic lighting shows "
+        "seams, divides space, and indicates moving parts.\n\n"
+
+        "Bold, graphic, intentional.\n\n"
+
+        "The foundational elements of print based design typography, grids, space, scale, color, "
+        "and use of imagery guide visual treatments. These elements do far more than please the "
+        "eye. They create hierarchy, meaning, and focus. Deliberate color choices, edge to edge "
+        "imagery, large scale typography, and intentional white space create a bold and graphic "
+        "interface that immerse the user in the experience.\n"
+        "An emphasis on user actions makes core functionality immediately apparent and provides "
+        "waypoints for the user.\n\n"
+
+        "Motion provides meaning.\n\n"
+
+        "Motion respects and reinforces the user as the prime mover. Primary user actions are "
+        "inflection points that initiate motion, transforming the whole design.\n"
+        "All action takes place in a single environment. Objects are presented to the user without "
+        "breaking the continuity of experience even as they transform and reorganize.\n"
+        "Motion is meaningful and appropriate, serving to focus attention and maintain continuity. "
+        "Feedback is subtle yet clear. Transitions are efﬁcient yet coherent.\n\n"
+
+        "3D world.\n\n"
+
+        "The material environment is a 3D space, which means all objects have x, y, and z "
+        "dimensions. The z-axis is perpendicularly aligned to the plane of the display, with the "
+        "positive z-axis extending towards the viewer. Every sheet of material occupies a single "
+        "position along the z-axis and has a standard 1dp thickness.\n"
+        "On the web, the z-axis is used for layering and not for perspective. The 3D world is "
+        "emulated by manipulating the y-axis.\n\n"
+
+        "Light and shadow.\n\n"
+
+        "Within the material environment, virtual lights illuminate the scene. Key lights create "
+        "directional shadows, while ambient light creates soft shadows from all angles.\n"
+        "Shadows in the material environment are cast by these two light sources. In Android "
+        "development, shadows occur when light sources are blocked by sheets of material at "
+        "various positions along the z-axis. On the web, shadows are depicted by manipulating the "
+        "y-axis only. The following example shows the card with a height of 6dp.\n\n"
+
+        "Resting elevation.\n\n"
+
+        "All material objects, regardless of size, have a resting elevation, or default elevation "
+        "that does not change. If an object changes elevation, it should return to its resting "
+        "elevation as soon as possible.\n\n"
+
+        "Component elevations.\n\n"
+
+        "The resting elevation for a component type is consistent across apps (e.g., FAB elevation "
+        "does not vary from 6dp in one app to 16dp in another app).\n"
+        "Components may have different resting elevations across platforms, depending on the depth "
+        "of the environment (e.g., TV has a greater depth than mobile or desktop).\n\n"
+
+        "Responsive elevation and dynamic elevation offsets.\n\n"
+
+        "Some component types have responsive elevation, meaning they change elevation in response "
+        "to user input (e.g., normal, focused, and pressed) or system events. These elevation "
+        "changes are consistently implemented using dynamic elevation offsets.\n"
+        "Dynamic elevation offsets are the goal elevation that a component moves towards, relative "
+        "to the component’s resting state. They ensure that elevation changes are consistent "
+        "across actions and component types. For example, all components that lift on press have "
+        "the same elevation change relative to their resting elevation.\n"
+        "Once the input event is completed or cancelled, the component will return to its resting "
+        "elevation.\n\n"
+
+        "Avoiding elevation interference.\n\n"
+
+        "Components with responsive elevations may encounter other components as they move between "
+        "their resting elevations and dynamic elevation offsets. Because material cannot pass "
+        "through other material, components avoid interfering with one another any number of ways, "
+        "whether on a per component basis or using the entire app layout.\n"
+        "On a component level, components can move or be removed before they cause interference. "
+        "For example, a floating action button (FAB) can disappear or move off screen before a "
+        "user picks up a card, or it can move if a snackbar appears.\n"
+        "On the layout level, design your app layout to minimize opportunities for interference. "
+        "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
+        "when a user tries to pick up one of cards.\n\n"
+    </string>
+    <string name="appName">SMARTFLAT VIEW</string>
+    <string name="appVersion">Version 2.7.01</string>
+    <string name="appLogoDescription">LOGO</string>
+    <string name="passwordDefault">1234</string>
+    <string name="indicatorPower">Питание</string>
+    <string name="indicatorBrightness">Яркость</string>
+    <string name="idisDateDefault">01.01.2018 23:59</string>
+    <string name="noCarrier">НЕТ СВЯЗИ</string>
+    <string name="idisView">Просмотр</string>
+    <string name="idisSeek">Поиск</string>
+    <string name="mediaFastBackward"><![CDATA[<<]]></string>
+    <string name="mediaBackward"><![CDATA[<]]></string>
+    <string name="mediaFastForward"><![CDATA[>>]]></string>
+    <string name="mediaForward"><![CDATA[>]]></string>
+    <string name="mediaTotal">40</string>
+    <string name="mediaFirst">1</string>
+    <string name="mediaLineHeader">Header</string>
+    <string name="mediaTrack1">Track 1</string>
+    <string name="mediaTrack2">Track 2</string>
+    <string name="mediaTrack3">Track 3</string>
+    <string name="mediaTrack4">Track 4</string>
+    <string name="mediaTrack5">Track 5</string>
+    <string name="mediaTrack6">Track 6</string>
+    <string name="mediaTrack7">Track 7</string>
+    <string name="mediaTrack8">Track 8</string>
+    <string name="mediaTrack9">Track 9</string>
+    <string name="mediaTrack10">Track 10</string>
+    <string name="mediaAdd">Добавить</string>
+    <string name="mediaReplace">Заменить</string>
+    <string name="navZonesList">Список зон:</string>
+    <string name="mediaDivider">/</string>
+    <string name="mediaClear">Очистить</string>
+    <string name="mediaLoad">Загрузить</string>
+    <string name="menuSettings">Настройки</string>
+    <string name="menuImport">Импорт конфигурации</string>
+    <string name="menuExit">Выход</string>
+    <string name="prefBackground">Фоновый режим</string>
+    <string name="prefBackgroundDescription">Опрашивать состояние сервера, когда приложение не загружено</string>
+    <string name="prefWakeup">Выводить из сна</string>
+    <string name="prefWakeupDescription">Новые уведомления могут выводить телефон из состояния сна</string>
+    <string name="prefSound">Звук и вибрация</string>
+    <string name="prefSoundDescription">Уведомления будут сопровождаться звуковым сигналом и вибрацией</string>
+    <string name="prefConnectionNotify">Уведомления об обрыве связи</string>
+    <string name="prefConnectionNotifyDescription">Нужно-ли генерировать уведомления об отсутствии связи с сервером, или только о тревогах</string>
+    <string name="headerConnection">Связь</string>
+    <string name="headerBackground">Уведомления и фоновый режим</string>
+    <string name="headerInterface">Интерфейс</string>
+    <string name="headerSecurity">Безопасность</string>
+    <string name="sdGuard">Под охраной</string>
+    <string name="sdTemperature">Температура</string>
+    <string name="notiyNoCarrier">Нет связи с сервером.</string>
+    <string name="notifyAlarms">Тревог на объекте:</string>
+    <string name="sdPower">Включено</string>
+    <string name="sdSpeed">Скорость</string>
+    <string name="sdCurtainsOpened">Шторы открыты</string>
+    <string name="sdBrightness">Яркость</string>
+    <string name="sdLocked">Заперто</string>
+    <string name="sdBlock">Блокировка</string>
+    <string name="sdFreePass">Свободный проход</string>
+    <string name="idisTimeSelect">Выбор времени</string>
+    <string name="idisGoTo">Перейти к…</string>
+    <string name="idisWaiting">Ожидание…</string>
+    <string name="idisVideo">Видео</string>
+    <string name="idisNoCarrier">НЕТ СВЯЗИ</string>
+    <string name="logConnectionStatus">Состояние связи с оборудованием:</string>
+    <string name="error_FileAccess">Не удалось получить права на доступ к файлам!</string>
+    <string name="ok">OK</string>
+    <string name="importSuccess">Конфигурация импортирована усешно.</string>
+    <string name="titleMediaLibrary">Медиа-библиотека</string>
+    <string name="titlePlaylist">Список воспроизведения</string>
+    <string name="mediaTrack">Track</string>
+    <string name="logWarningDemo">Программа запущена в демо-режиме, связь с оборудованием заблокирована.</string>
+    <string name="logWarningNoAnswer">Cервер данных не отвечает. Возможно, в конфигурации указан неверный код безопасности.</string>
+    <string name="logRequestSend">Запрос данных…</string>
+    <string name="logNoErrors">Ошибок связи нет.</string>
+    <string name="logDataReceived">Данные получены.</string>
+    <string name="logConnectionTry">Соединение с %s:%d (попытка %d)…</string>
+    <string name="logConnectionOK">Соединение установлено…</string>
+    <string name="logNoAccess">Нет доступа к %s:%d.</string>
+    <string name="logNoWiFi">Сеть WiFi не доступна!</string>
+    <string name="logUseMobile">Используем мобильный интернет…</string>
+    <string name="logNoMobile">Мобильный интернет не доступен!</string>
+    <string name="logMobileNotAllowed">Использование мобильного интернета не разрешено!</string>
+    <string name="sdOpen">Открыто</string>
+    <string name="menuDebug">!Отладка!</string>
+
+</resources>

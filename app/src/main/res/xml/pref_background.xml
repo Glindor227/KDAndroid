@@ -1,0 +1,9 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <CheckBoxPreference android:key="background" android:title="@string/prefBackground" android:summary="@string/prefBackgroundDescription" android:defaultValue="true"/>
+    <CheckBoxPreference android:key="wakeup" android:title="@string/prefWakeup" android:summary="@string/prefWakeupDescription" android:defaultValue="true"/>
+    <CheckBoxPreference android:key="sound" android:title="@string/prefSound" android:summary="@string/prefSoundDescription" android:defaultValue="true"/>
+    <CheckBoxPreference android:key="connectionNotify" android:title="@string/prefConnectionNotify" android:summary="@string/prefConnectionNotifyDescription" android:defaultValue="true"/>
+
+
+</PreferenceScreen>

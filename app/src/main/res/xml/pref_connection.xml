@@ -1,0 +1,7 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <EditTextPreference android:key="ip" android:title="@string/external_ip_title" android:summary="@string/external_IP_summary" android:defaultValue="192.168.1.1" android:dialogMessage="@string/external_IP_summary" android:dialogTitle="@string/external_ip_title" />
+    <EditTextPreference android:key="security_code" android:dialogMessage="@string/security_code_summary" android:dialogTitle="@string/security_code_title" android:summary="@string/security_code_summary" android:title="@string/security_code_title" />
+    <CheckBoxPreference android:key="mobile" android:title="@string/mobileTitle" android:summary="@string/mobileSummary" android:defaultValue="false"/>
+
+</PreferenceScreen>

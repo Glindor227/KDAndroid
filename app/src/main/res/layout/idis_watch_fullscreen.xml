@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:baselineAligned="false">
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="5"
+        tools:ignore="UselessParent">
+
+        <FrameLayout
+            android:id="@+id/base_watch_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/playlistBackground">
+
+        </FrameLayout>
+
+        <ru.cpc.smartflatview.VerticalTextView
+            android:id="@+id/dateTimeTextView"
+            android:layout_width="25dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="11dp"
+            android:layout_marginStart="11dp"
+            android:gravity="fill_vertical"
+            android:singleLine="true"
+            android:text="@string/idisDateDefault"
+            android:textColor="@android:color/black" />
+
+        <ru.cpc.smartflatview.VerticalTextView
+            android:id="@+id/noCarrierTextView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="fill"
+            android:text="@string/noCarrier"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="36sp" />
+
+    </RelativeLayout>
+
+</LinearLayout>

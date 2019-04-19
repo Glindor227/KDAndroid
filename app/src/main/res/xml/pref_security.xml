@@ -1,0 +1,8 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <EditTextPreference android:key="login_code" android:title="@string/login_title" android:summary="@string/login_summary" android:inputType="numberPassword" android:hint="@string/code_hint" android:ems="10" android:textAlignment="center" android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"/>
+    <EditTextPreference android:key="fire_code" android:title="@string/fire_title" android:summary="@string/fire_summary"  android:inputType="numberPassword" android:hint="@string/code_hint" android:ems="10" android:textAlignment="center" android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"/>
+    <EditTextPreference android:key="pref_code" android:title="@string/prefs_title" android:summary="@string/prefs_summary" android:inputType="numberPassword" android:hint="@string/code_hint" android:ems="10" android:textAlignment="center" android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"/>
+
+
+</PreferenceScreen>

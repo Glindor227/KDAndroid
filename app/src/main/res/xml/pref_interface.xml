@@ -1,0 +1,9 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ListPreference android:key="start" android:entryValues="@array/start_screens_values" android:title="@string/start_screen" android:entries="@array/start_screens_labels" android:summary="@string/start_screen_summary" android:defaultValue="2">
+    </ListPreference>
+    <CheckBoxPreference android:key="exit" android:summary="@string/exit_summary" android:title="@string/exit_title" android:defaultValue="true">
+    </CheckBoxPreference>
+
+
+</PreferenceScreen>

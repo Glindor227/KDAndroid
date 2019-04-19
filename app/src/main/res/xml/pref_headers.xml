@@ -1,0 +1,21 @@
+<preference-headers xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- These settings headers are only used on tablets. -->
+
+    <header
+        android:fragment="ru.cpc.smartflatview.Prefs$ConnectionPreferenceFragment"
+        android:title="@string/headerConnection" />
+
+    <header
+        android:fragment="ru.cpc.smartflatview.Prefs$BackgroundPreferenceFragment"
+        android:title="@string/headerBackground" />
+
+    <header
+        android:fragment="ru.cpc.smartflatview.Prefs$InterfacePreferenceFragment"
+        android:title="@string/headerInterface" />
+
+    <header
+        android:fragment="ru.cpc.smartflatview.Prefs$SecurityPreferenceFragment"
+        android:title="@string/headerSecurity" />
+
+</preference-headers>

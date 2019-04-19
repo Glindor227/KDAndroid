@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="start_screens_labels">
+        <item>@string/start_screen_first</item>
+        <item>@string/start_screen_last</item>
+    </string-array>
+    <string-array name="start_screens_values">
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    
+</resources>

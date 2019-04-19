@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#88B6CE</color>
+    <color name="colorPrimaryDark">#6493AE</color>
+    <color name="colorAccent">#a8d6ee</color>
+    <color name="playlistBackground">#E0E0E0</color>
+    <color name="color1">#4476BB</color>
+    <color name="color2">#904476BB</color>
+    <color name="colorBlack">#B2000000</color>
+</resources>

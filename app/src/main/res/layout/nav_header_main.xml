@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/nav_header_height"
+    android:background="@android:color/background_light"
+    android:gravity="bottom"
+    android:orientation="horizontal"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingEnd="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingBottom="8dp"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark"
+    android:weightSum="1"
+    tools:ignore="RtlSymmetry">
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="33dp"
+        android:paddingStart="2dp"
+        android:paddingLeft="32dp"
+        android:paddingTop="2dp"
+        android:src="@drawable/logo_kd_big"
+        android:visibility="invisible"
+        tools:ignore="RtlSymmetry" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingStart="12dp"
+        android:paddingLeft="12dp"
+        android:paddingTop="12dp"
+        android:text="@string/navZonesList"
+        android:textAppearance="@android:style/TextAppearance.DeviceDefault.SearchResult.Title"
+        android:textColor="@color/color1"
+        tools:ignore="RtlSymmetry" />
+
+</LinearLayout>
