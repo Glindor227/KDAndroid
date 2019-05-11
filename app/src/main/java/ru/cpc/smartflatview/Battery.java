@@ -12,7 +12,7 @@ public class Battery extends BaseRegulator
 {
     public Battery(int iX, int iY, String sName, boolean bMetaInd, boolean bProtected, boolean bDoubleScale, boolean bQuick, int iReaction, int iScale)
     {
-        super(iX, iY, R.drawable.radiator_cold, 5, sName, bMetaInd, bProtected, bDoubleScale, bQuick, iReaction, iScale);
+        super(iX, iY, newDez?R.drawable.radiator_cool_2:R.drawable.radiator_cold, 5, sName, bMetaInd, bProtected, bDoubleScale, bQuick, iReaction, iScale);
 
         m_iValue = 20;
         m_bPower = true;
@@ -53,10 +53,10 @@ public class Battery extends BaseRegulator
     {
         int iResId = -1;
 
-        iResId = R.drawable.radiator_cold;
+        iResId = newDez?R.drawable.radiator_cool_2:R.drawable.radiator_cold;
 
         if(m_iValue > m_fValueMed)
-            iResId = R.drawable.radiator_hot;
+            iResId = newDez?R.drawable.radiator_hot_2:R.drawable.radiator_hot;
 
         if(m_pUI == null)
         {

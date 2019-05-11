@@ -465,6 +465,7 @@ public class IndicatorUI extends ViewGroup
     @Override
 	protected void onLayout(boolean changed, int l, int t, int r, int b) 
 	{
+		Log.d("Glindor4", m_pIndicator.m_sName + "(" + l + "," + t + ","+ r + ","+ b+")");
 		m_iWidth = r-l;
 		m_iHeight = b-t;
 

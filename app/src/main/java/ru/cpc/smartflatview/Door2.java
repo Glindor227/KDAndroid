@@ -17,7 +17,7 @@ public class Door2 extends Indicator
 	
 	public Door2(int iX, int iY, String sName, boolean bMetaInd, boolean bProtected, boolean bDoubleScale, boolean bQuick, int iReaction, int iScale)
 	{
-		super(iX, iY, R.drawable.door_unblock, 1, sName, bMetaInd, bProtected, bDoubleScale, bQuick, iReaction, iScale);
+		super(iX, iY, newDez?R.drawable.door_unblock_2:R.drawable.door_unblock, 1, sName, bMetaInd, bProtected, bDoubleScale, bQuick, iReaction, iScale);
 	}
 
 	public String m_sVariableFire = "-1";
@@ -89,13 +89,13 @@ public class Door2 extends Indicator
 		int iResId = -1;
 		
 		if(m_bBlock)
-			iResId = R.drawable.door_block;
+			iResId = newDez?R.drawable.door_block_2:R.drawable.door_block;
 		else
 		{
 			if(m_bFireMode)
-				iResId = R.drawable.door_free;
+				iResId = newDez?R.drawable.door_free_2:R.drawable.door_free;
 			else
-				iResId = R.drawable.door_unblock;
+				iResId = newDez?R.drawable.door_unblock_2:R.drawable.door_unblock;
 		}
 
 		if(m_pUI == null)

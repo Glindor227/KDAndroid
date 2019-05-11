@@ -9,7 +9,10 @@ import android.content.Context;
 public class MacroFreePass extends BaseMacro {
     public MacroFreePass(int iX, int iY, String sName, String sButtonName, boolean bMetaInd, boolean bProtected, boolean bDoubleScale, boolean bQuick, int iReaction, int iScale)
     {
-        super(iX, iY, R.drawable.door_free, R.drawable.door_unblock, 8, sName, sButtonName, bMetaInd, bProtected, bDoubleScale, bQuick, iReaction, iScale);
+        super(iX, iY,
+                newDez?R.drawable.door_free_2:R.drawable.door_free,
+                newDez?R.drawable.door_unblock_2:R.drawable.door_unblock,
+                8, sName, sButtonName, bMetaInd, bProtected, bDoubleScale, bQuick, iReaction, iScale);
         // TODO Auto-generated constructor stub
 
         m_bText2 = false;

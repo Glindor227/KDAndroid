@@ -13,7 +13,7 @@ public class WarmFloorDevi extends BaseRegulator
 {
     public WarmFloorDevi(int iX, int iY, String sName, boolean bMetaInd, boolean bProtected, boolean bDoubleScale, boolean bQuick, int iReaction, int iScale)
     {
-        super(iX, iY, R.drawable.id088, 4, sName, bMetaInd, bProtected, bDoubleScale, bQuick, iReaction, iScale);
+        super(iX, iY, newDez?R.drawable.pol_off:R.drawable.id088, 4, sName, bMetaInd, bProtected, bDoubleScale, bQuick, iReaction, iScale);
 
         m_iValue = 20;
     }
@@ -31,9 +31,9 @@ public class WarmFloorDevi extends BaseRegulator
         int iResId = -1;
 
         if(m_bPower)
-            iResId = R.drawable.id087;
+            iResId = newDez?R.drawable.pol_on:R.drawable.id087;
         else
-            iResId = R.drawable.id088;
+            iResId = newDez?R.drawable.pol_off:R.drawable.id088;
 
         if(m_pUI == null)
         {

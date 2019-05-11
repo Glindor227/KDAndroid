@@ -16,7 +16,7 @@ import java.util.TimerTask;
 public abstract class Indicator
 {
 	protected static final String TAG = "SMARTFLAT" ;
-	protected static final boolean newDez  = false;
+	protected static final boolean newDez  = true;
 
 	protected int m_iOldResID = -1;
 	protected int m_iNewResID = -1;

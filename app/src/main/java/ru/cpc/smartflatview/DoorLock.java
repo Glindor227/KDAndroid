@@ -147,16 +147,16 @@ public class DoorLock extends Indicator
     {
         int iResId = -1;
 
-        int id100 = m_bLocked ? R.drawable.door_block_guard : R.drawable.door_unblock_guard;
-        int id102 = m_bLocked ? R.drawable.door_block : R.drawable.door_unblock;
-        int id103 = m_bLocked ? R.drawable.door_block_alarm : R.drawable.door_unblock_alarm;
+        int id100 = m_bLocked ? (newDez?R.drawable.door_block_guard_2:R.drawable.door_block_guard) : (newDez?R.drawable.door_unblock_guard_2:R.drawable.door_unblock_guard);
+        int id102 = m_bLocked ? (newDez?R.drawable.door_block_2:R.drawable.door_block) : (newDez?R.drawable.door_unblock_2:R.drawable.door_unblock);
+        int id103 = m_bLocked ? (newDez?R.drawable.door_block_alarm_2:R.drawable.door_block_alarm) : (newDez?R.drawable.door_unblock_alarm_2:R.drawable.door_unblock_alarm);
 
         if(m_bAlarm && m_pUI != null)
         {
             m_pUI.StartAnimation(id100);
 
             if(m_bOpened)
-                iResId = R.drawable.door_free_alarm;
+                iResId = newDez?R.drawable.door_free_alarm_2:R.drawable.door_free_alarm;
             else
                 iResId = id103;
         }
@@ -167,7 +167,7 @@ public class DoorLock extends Indicator
             else
             {
                 if(m_bOpened)
-                    iResId = R.drawable.door_free;
+                    iResId = newDez?R.drawable.door_free_2:R.drawable.door_free;
                 else
                     iResId = id102;
             }

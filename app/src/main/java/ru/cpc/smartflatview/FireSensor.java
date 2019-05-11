@@ -10,7 +10,6 @@ public class FireSensor extends BaseAlarmSensor
 					newDez?R.drawable.fire_sensor_off:R.drawable.id071,
 					1, sName, bMetaInd, bProtected, bDoubleScale, bQuick, iReaction, iScale);
 
-//			super(iX, iY, R.drawable.id072, R.drawable.id073, R.drawable.id071, 1, sName, bMetaInd, bProtected, bDoubleScale, bQuick, iReaction, iScale);
 
 		// TODO Auto-generated constructor stub
 		m_iImitateAlarmChance = 15;

@@ -53,6 +53,7 @@ public class Config
 
 	public Config()
 	{
+		Log.d("Glindor2","Начало Конфига");
 		DEMO = true;
 		
 		int subsystemIndex = 0;
@@ -324,6 +325,8 @@ public class Config
 		m_cGroups.get("Группа 2").add(room4b);
 		m_cGroups.get("Группа 2").add(room4c);
 		m_cGroups.get("Группа 2").add(room56);
+		Log.d("Glindor2","Конец Конфига");
+
 	}
 
 	public Config(InputStream is)

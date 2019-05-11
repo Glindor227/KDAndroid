@@ -9,7 +9,10 @@ public class Valve extends BaseRelay
 {
 	public Valve(int iX, int iY, String sName, boolean bMetaInd, boolean bProtected, boolean bDoubleScale, boolean bQuick, int iReaction, int iScale)
 	{
-		super(iX, iY, R.drawable.id083_cold, R.drawable.id085_cold, 3, sName, bMetaInd, bProtected, bDoubleScale, bQuick, iReaction, iScale);
+		super(iX, iY,
+				newDez?R.drawable.valve_on:R.drawable.id083_cold,
+				newDez?R.drawable.valve_off:R.drawable.id085_cold,
+				3, sName, bMetaInd, bProtected, bDoubleScale, bQuick, iReaction, iScale);
 		// TODO Auto-generated constructor stub
 	}
 

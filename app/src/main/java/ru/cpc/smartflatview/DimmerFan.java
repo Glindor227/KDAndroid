@@ -14,9 +14,7 @@ public class DimmerFan extends BaseRegulator
 {
     public DimmerFan(int iX, int iY, String sName, boolean bMetaInd, boolean bProtected, boolean bDoubleScale, boolean bQuick, int iReaction, int iScale)
     {
-        //R.drawable.id091, R.drawable.id089
         super(iX, iY, R.drawable.id089, 2, sName, bMetaInd, bProtected, bDoubleScale, bQuick, iReaction, iScale);
-        //super(iX, iY, R.drawable.id056, 1, sName, bMetaInd, bProtected, bDoubleScale, iScale);
     }
 
     @Override

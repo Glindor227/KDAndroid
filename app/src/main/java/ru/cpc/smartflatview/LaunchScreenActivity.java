@@ -27,16 +27,21 @@ public class LaunchScreenActivity extends AppCompatActivity
         protected void onPreExecute() {
             super.onPreExecute();
             Log.d("LaunchScreen", "onPreExecute()");
+            Log.d("Glindor3","BackgroundTask onPreExecute");
+
             intent = new Intent(LaunchScreenActivity.this, MainActivity.class);
         }
         @Override
         protected Config doInBackground(Uri... params) {
                 /*  Use this method to load background
                 * data that your app needs. */
+            Log.d("Glindor3","BackgroundTask doInBackground 1");
+
             Config pConfig = null;
             Log.i("LaunchScreen", "Starting task with url: "+params[0]);
             //if(importData != Uri.EMPTY)
             //    throw new InvalidParameterException();
+            Log.d("Glindor3","BackgroundTask doInBackground 2");
 
             if(Config.DEMO)
                 pConfig = new Config();
@@ -71,6 +76,7 @@ public class LaunchScreenActivity extends AppCompatActivity
                     Config.SaveXml(pConfig, LaunchScreenActivity.this);
 //                }
             }
+            Log.d("Glindor3","BackgroundTask doInBackground 3");
 
             Log.d("LaunchScreen", "doInBackground()");
             try {
@@ -78,16 +84,21 @@ public class LaunchScreenActivity extends AppCompatActivity
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            Log.d("Glindor3","BackgroundTask doInBackground 4");
+
             return pConfig;
         }
         @Override
         protected void onPostExecute(Config o) {
+            Log.d("Glindor3","BackgroundTask onPostExecute 1");
+
             super.onPostExecute(o);
             Log.d("LaunchScreen", "onPostExecute()");
 
             Config.Instance = o;
             TextView pTextName = (TextView) findViewById(R.id.summary_name);
             TextView pTextDesc = (TextView) findViewById(R.id.summary_description);
+            Log.d("Glindor3","BackgroundTask onPostExecute 2");
 
             if (pTextName != null)
             {
@@ -97,6 +108,7 @@ public class LaunchScreenActivity extends AppCompatActivity
             {
                 pTextDesc.setText(o.m_sSummaryText);
             }
+            Log.d("Glindor3","BackgroundTask onPostExecute 3");
 
             try
             {
@@ -107,6 +119,7 @@ public class LaunchScreenActivity extends AppCompatActivity
                 Log.v("Glindor",e.getMessage());
                 e.printStackTrace();
             }
+            Log.d("Glindor3","BackgroundTask onPostExecute 4");
 
             //            Pass your loaded data here using Intent
             //            intent.putExtra("data_key", "");
@@ -125,11 +138,15 @@ public class LaunchScreenActivity extends AppCompatActivity
                 Intent intentLogin = new Intent(LaunchScreenActivity.this, LoginActivity.class);
                 startActivity(intentLogin);
             }
+            Log.d("Glindor3","BackgroundTask onPostExecute 5");
+
             finish();
         }
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d("Glindor3","LaunchScreenActivity onCreate start");
+
         super.onCreate(savedInstanceState);
 //        Transparent Status Bar
 
@@ -144,6 +161,7 @@ public class LaunchScreenActivity extends AppCompatActivity
 
         TextView pTextName = (TextView) findViewById(R.id.summary_name);
         TextView pTextDesc = (TextView) findViewById(R.id.summary_description);
+        Log.d("Glindor3","LaunchScreenActivity onCreate 1");
 
         if (pTextName != null)
         {
@@ -167,6 +185,7 @@ public class LaunchScreenActivity extends AppCompatActivity
             }
             pTextDesc.setText(String.format(Locale.US, "Version %s", myVersionName));
         }
+        Log.d("Glindor3","LaunchScreenActivity onCreate 2");
 
         if(!Config.DEMO)
         {
@@ -182,7 +201,10 @@ public class LaunchScreenActivity extends AppCompatActivity
                 }
             }
         }
+        Log.d("Glindor3","LaunchScreenActivity onCreate 3");
+
         new BackgroundTask().execute(importData);
+        Log.d("Glindor3","LaunchScreenActivity onCreate end");
     }
 
 }

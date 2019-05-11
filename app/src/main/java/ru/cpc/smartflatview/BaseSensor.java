@@ -22,7 +22,7 @@ public abstract class BaseSensor extends Indicator
                         boolean bMetaInd, boolean bProtected, boolean bDoubleSize, boolean bQuick, int iReaction,
                         int iScale)
     {
-        super(fX, fY, R.drawable.empty, iSubType, sName, bMetaInd, bProtected, bDoubleSize, bQuick, iReaction, iScale);
+        super(fX, fY, newDez?R.drawable.empty_2:R.drawable.empty, iSubType, sName, bMetaInd, bProtected, bDoubleSize, bQuick, iReaction, iScale);
         // TODO Auto-generated constructor stub
 
         m_bText2 = true;

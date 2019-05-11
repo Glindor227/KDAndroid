@@ -12,7 +12,6 @@ public class DimmerLamp extends BaseRegulator
 	public DimmerLamp(int iX, int iY, String sName, boolean bMetaInd, boolean bProtected, boolean bDoubleScale, boolean bQuick, int iReaction, int iScale)
 	{
 		super(iX, iY, R.drawable.lamp02, 1, sName, bMetaInd, bProtected, bDoubleScale, bQuick, iReaction, iScale);
-		//super(iX, iY, R.drawable.id056, 1, sName, bMetaInd, bProtected, bDoubleScale, iScale);
 
 		m_fValueMin = 0;
 		m_fValueMax = 100;

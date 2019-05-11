@@ -187,10 +187,13 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d("Glindor3","MainActivity onCreate 0");
+
         RoboErrorReporter.bindReporter(this);
         StrictMode.ThreadPolicy policy =
                 new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
+        Log.d("Glindor3","MainActivity onCreate 1");
 
         if (android.os.Build.VERSION.SDK_INT >= 23)
         {
@@ -206,6 +209,7 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         RCore.getInstance().setResolution(new RSize());
+        Log.d("Glindor3","MainActivity onCreate 2");
 
         mAppContext = getApplicationContext();
 
@@ -214,6 +218,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        Log.d("Glindor3","MainActivity onCreate 3");
 
         MenuItem item = null;
         if (toolbar != null)
@@ -222,6 +227,7 @@ public class MainActivity extends AppCompatActivity {
         }
         if(item != null)
             item.setIcon(R.drawable.ic_ok);
+        Log.d("Glindor3","MainActivity onCreate 4");
 
         Log.d("SF", "MainActivity.onCreate()");
 
@@ -235,6 +241,7 @@ public class MainActivity extends AppCompatActivity {
         {
             mViewPager.setAdapter(mSectionsPagerAdapter);
         }
+        Log.d("Glindor3","MainActivity onCreate 5");
 
         tabLayout = (TabLayout) findViewById(R.id.tabs);
         if (tabLayout != null)
@@ -252,6 +259,7 @@ public class MainActivity extends AppCompatActivity {
             drawer.setDrawerListener(toggle);
         }
         toggle.syncState();
+        Log.d("Glindor3","MainActivity onCreate 6");
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
 
@@ -259,6 +267,7 @@ public class MainActivity extends AppCompatActivity {
         {
             navigationView.setItemIconTintList(null);
         }
+        Log.d("Glindor3","MainActivity onCreate 7");
 
         if(Config.Instance != null)
             prepareListData();
@@ -381,15 +390,22 @@ public class MainActivity extends AppCompatActivity {
             Log.e("SF", "getPreferences exception : " + ex.getMessage() );
         }
         Log.d("SF", "onCreate, loading = '" + indicators + "'" );
+        Log.d("Glindor3","MainActivity onCreate 8");
         Load(indicators);
+        Log.d("Glindor3","MainActivity onCreate 8.1");
 
         if(Config.Instance != null && Config.Instance.m_cSubsystems != null && Config.Instance.m_cSubsystems.size() > 0)
         {
+            Log.d("Glindor3","MainActivity onCreate 8.1");
             SFServer.Instance = new SFServer(this);
+            Log.d("Glindor3","MainActivity onCreate 8.2");
 
             if(!Config.DEMO)
                 SFServer.Instance.Connect();
+            Log.d("Glindor3","MainActivity onCreate 8.3");
         }
+        Log.d("Glindor3","MainActivity onCreate 9");
+
     }
 
     List<ExpandedMenuModel> m_cListData;
@@ -979,6 +995,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void Load(String indicators)
     {
+        Log.d("Glindor3","MainActivity Load 0");
+
         if(Config.Instance == null)
             return;
 
@@ -990,10 +1008,12 @@ public class MainActivity extends AppCompatActivity {
 
         if(Config.Instance.m_cRooms.size() == 0)
             return;
+        Log.d("Glindor3","MainActivity Load 1");
 
         int iIndCount = 0;
         for (Subsystem pSubsystem : Config.Instance.m_cSubsystems)
             iIndCount += pSubsystem.getIndicatorsCount();
+        Log.d("Glindor3","MainActivity Load 2");
 
         if(indicators.length() < iIndCount + 1)
         {
@@ -1021,6 +1041,7 @@ public class MainActivity extends AppCompatActivity {
             getSupportActionBar().setTitle(Config.Instance.m_cRooms.get(mSectionsPagerAdapter.m_iRoom).m_sName);
             return;
         }
+        Log.d("Glindor3","MainActivity Load 3");
 
         if(Prefs.getStart(this) == 2)
             mSectionsPagerAdapter.m_iRoom = indicators.charAt(0);
@@ -1029,8 +1050,10 @@ public class MainActivity extends AppCompatActivity {
 
         if(mSectionsPagerAdapter.m_iRoom >= Config.Instance.m_cRooms.size())
             mSectionsPagerAdapter.m_iRoom = 0;
+        Log.d("Glindor3","MainActivity Load 4");
 
         mViewPager.getAdapter().notifyDataSetChanged();
+        Log.d("Glindor3","MainActivity Load 5");
 
         tabLayout.removeAllTabs();
         for (Subsystem pSubsystem : Config.Instance.m_cRooms.get(mSectionsPagerAdapter.m_iRoom).m_cSubsystems) {
@@ -1042,19 +1065,26 @@ public class MainActivity extends AppCompatActivity {
             newTab.setText(pSubsystem.m_sName);
             tabLayout.addTab(newTab);
         }
+        Log.d("Glindor3","MainActivity Load 6");
+
         tabLayout.getTabAt(0).select();
+        Log.d("Glindor3","MainActivity Load 7");
 
         if(Config.Instance.m_cRooms.get(mSectionsPagerAdapter.m_iRoom).m_cSubsystems.size() > 1) {
             tabLayout.setVisibility(View.VISIBLE);
         }
         else
             tabLayout.setVisibility(View.GONE);
+        Log.d("Glindor3","MainActivity Load 9");
 
         getSupportActionBar().setTitle(Config.Instance.m_cRooms.get(mSectionsPagerAdapter.m_iRoom).m_sName);
+        Log.d("Glindor3","MainActivity Load 10");
 
         int iPos = 1;
         for (Subsystem pSubsystem : Config.Instance.m_cSubsystems)
             iPos = pSubsystem.Load(indicators, iPos);
+        Log.d("Glindor3","MainActivity Load 11");
+
     }
 
     public String Save()

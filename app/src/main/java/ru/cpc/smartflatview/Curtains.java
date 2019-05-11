@@ -10,7 +10,10 @@ public class Curtains extends BaseRelay
 {
 	public Curtains(int iX, int iY, String sName, boolean bMetaInd, boolean bProtected, boolean bDoubleScale, boolean bQuick, int iReaction, int iScale)
 	{
-		super(iX, iY, R.drawable.id066, R.drawable.id067, 2, sName, bMetaInd, bProtected, bDoubleScale, bQuick, iReaction, iScale);
+		super(iX, iY,
+				newDez?R.drawable.curtains_close:R.drawable.id066,
+				newDez?R.drawable.curtains_open:R.drawable.id067,
+				2, sName, bMetaInd, bProtected, bDoubleScale, bQuick, iReaction, iScale);
 		// TODO Auto-generated constructor stub
 	}
 
