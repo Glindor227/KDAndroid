@@ -51,9 +51,17 @@ public class SubsystemUI extends RelativeLayout
 
 		Log.d("TEST", "Page1 height = " + height);
 
-		int itemWidth = width/ m_pSubsystem.m_iGridWidth - 5;
-		int itemHeight = height/ m_pSubsystem.m_iGridHeight - 5;
-
+		int itemWidth =0;
+		int itemHeight = 0;
+//		if(height>width) {
+			itemWidth = width / m_pSubsystem.m_iGridWidth - 5;
+			itemHeight = height / m_pSubsystem.m_iGridHeight - 5;
+/*		}
+		else {
+			itemWidth = width / m_pSubsystem.m_iGridHeight - 5;
+			itemHeight = height / m_pSubsystem.m_iGridWidth - 5;
+		}
+*/
 		itemWidth = itemWidth * 4 / 5;
 		itemHeight = itemHeight * 4 / 5;
 

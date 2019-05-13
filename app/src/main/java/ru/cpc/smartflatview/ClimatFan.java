@@ -13,7 +13,7 @@ public class ClimatFan extends BaseClimat
 {
     public ClimatFan(int iX, int iY, String sName, boolean bMetaInd, boolean bProtected, boolean bDoubleScale, boolean bQuick, int iReaction, int iScale)
     {
-        super(iX, iY, R.drawable.cfan1, 2, sName, bMetaInd, bProtected, bDoubleScale, bQuick, iReaction, iScale);
+        super(iX, iY, newDez?R.drawable.fan_off:R.drawable.cfan1, 2, sName, bMetaInd, bProtected, bDoubleScale, bQuick, iReaction, iScale);
 
         m_iTemp = 20;
         m_iSpeed = 50;
@@ -40,16 +40,16 @@ public class ClimatFan extends BaseClimat
         switch(m_iMode)
         {
             case 0:
-                iResId = R.drawable.cfan1;
+                iResId = newDez?R.drawable.fan_off:R.drawable.cfan1;
                 break;
             case 1:
-                iResId = R.drawable.cfan2;
+                iResId = newDez?R.drawable.fan_s:R.drawable.cfan2;
                 break;
             case 2:
-                iResId = R.drawable.cfan3;
+                iResId = newDez?R.drawable.fan_m:R.drawable.cfan3;
                 break;
             case 3:
-                iResId = R.drawable.cfan4;
+                iResId = newDez?R.drawable.fan_b:R.drawable.cfan4;
                 break;
         }
 
@@ -109,7 +109,11 @@ public class ClimatFan extends BaseClimat
                 SetSpeed(seekBar.getProgress() + (int) m_fSpeedMin);
             }
         });
-        final ScrollingDialog.SFModeSelector pSelector = (ScrollingDialog.SFModeSelector)ScrollingDialog.AddModeSelector(m_sVariableMode, R.drawable.cfan_mode1, R.drawable.cfan_mode2, R.drawable.cfan_mode3, R.drawable.cfan_mode4, m_iMode, R.color.playlistBackground, R.color.colorAccent,
+        final ScrollingDialog.SFModeSelector pSelector = (ScrollingDialog.SFModeSelector)ScrollingDialog.AddModeSelector(m_sVariableMode,
+                newDez?R.drawable.fan_off:R.drawable.cfan_mode1,
+                newDez?R.drawable.fan_s:R.drawable.cfan_mode2,
+                newDez?R.drawable.fan_m:R.drawable.cfan_mode3,
+                newDez?R.drawable.fan_b:R.drawable.cfan_mode4,             m_iMode, R.color.playlistBackground, R.color.colorAccent,
                 new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -9,7 +9,9 @@ public class Fan extends BaseRelay
 {
 	public Fan(int iX, int iY, String sName, boolean bMetaInd, boolean bProtected, boolean bDoubleScale, boolean bQuick, int iReaction, int iScale)
 	{
-		super(iX, iY, R.drawable.id091, R.drawable.id089, 4, sName, bMetaInd, bProtected, bDoubleScale, bQuick, iReaction, iScale);
+		super(iX, iY,
+				newDez?R.drawable.fan_b:R.drawable.id091,
+				newDez?R.drawable.fan_off:R.drawable.id089, 4, sName, bMetaInd, bProtected, bDoubleScale, bQuick, iReaction, iScale);
 		// TODO Auto-generated constructor stub
 	}
 
