@@ -13,6 +13,7 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -33,6 +34,9 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.ImageSpan;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -253,6 +257,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         //Настраиваем боковое меню
+        /*
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -261,6 +266,7 @@ public class MainActivity extends AppCompatActivity {
             drawer.setDrawerListener(toggle);
         }
         toggle.syncState();
+        */
         Log.d("Glindor3","MainActivity onCreate 6");
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
@@ -299,11 +305,12 @@ public class MainActivity extends AppCompatActivity {
                     tabLayout.removeAllTabs();
                     for (Subsystem pSubsystem : Config.Instance.m_cRooms.get(iRoom).m_cSubsystems) {
                         TabLayout.Tab newTab = tabLayout.newTab();
-                        //if(pSubsystem.m_sName.equalsIgnoreCase("0"))
-                        //    newTab.setIcon(R.drawable.tab_light_indicator);
-                        //else
-                        //    newTab.setIcon(R.drawable.tab_media_indicator);
+                        if(pSubsystem.m_sName.equalsIgnoreCase("0"))
+                            newTab.setIcon(R.drawable.tab_light_indicator);
+                        else
+                            newTab.setIcon(R.drawable.tab_media_indicator);
                         newTab.setText(pSubsystem.m_sName);
+                        Log.d("Glindor4","Новая закладка "+pSubsystem.m_sName);
                         tabLayout.addTab(newTab);
                     }
                     tabLayout.getTabAt(0).select();
@@ -348,10 +355,10 @@ public class MainActivity extends AppCompatActivity {
                         tabLayout.removeAllTabs();
                         for (Subsystem pSubsystem : Config.Instance.m_cRooms.get(iGroup).m_cSubsystems) {
                             TabLayout.Tab newTab = tabLayout.newTab();
-                            //if(pSubsystem.m_sName.equalsIgnoreCase("0"))
-                            //    newTab.setIcon(R.drawable.tab_light_indicator);
-                            //else
-                            //    newTab.setIcon(R.drawable.tab_media_indicator);
+                            if(pSubsystem.m_sName.equalsIgnoreCase("0"))
+                                newTab.setIcon(R.drawable.tab_light_indicator);
+                            else
+                                newTab.setIcon(R.drawable.tab_media_indicator);
                             newTab.setText(pSubsystem.m_sName);
                             tabLayout.addTab(newTab);
                         }
@@ -1153,7 +1160,20 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public CharSequence getPageTitle(int position) {
-            return Config.Instance.m_cRooms.get(m_iRoom).m_cSubsystems.get(position).m_sName;
+            int[] imageResId = {R.drawable.light2, R.drawable.media1};
+
+            String text = Config.Instance.m_cRooms.get(m_iRoom).m_cSubsystems.get(position).m_sName;
+
+// генерируем название в зависимости от позиции
+//            Drawable image = getResources().getDrawable(imageResId[position<2?position:1]);
+            Drawable image = getResources().getDrawable(R.drawable.ic_ok);
+            image.setBounds(0, 0, image.getIntrinsicWidth(), image.getIntrinsicHeight());
+            // заменяем пробел иконкой
+            SpannableString sb = new SpannableString("      " + text);
+            ImageSpan imageSpan = new ImageSpan(image, ImageSpan.ALIGN_BOTTOM);
+            sb.setSpan(imageSpan, 0, 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            return sb;
+
         }
     }
     /**
