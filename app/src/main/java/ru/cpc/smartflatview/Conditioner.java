@@ -8,10 +8,11 @@ import android.widget.SeekBar;
 
 public class Conditioner extends BaseRegulator 
 {
-	private static int imageCoolOn = R.drawable.conf_cool_on;
-	private static int imageCoolOff= R.drawable.conf_cool_off;
-	private static int imageHotOn= R.drawable.conf_hot_on;
-	private static int imageHotOff= R.drawable.conf_hot_off;
+	private static int imageCoolOn = posDez?R.drawable.conf_cool_off_p:R.drawable.conf_cool_off;
+	private static int imageCoolOff=  posDez?R.drawable.conf_cool_on_p:R.drawable.conf_cool_on;
+	private static int imageHotOn= posDez?R.drawable.conf_hot_off_p:R.drawable.conf_hot_off;
+	private static int imageHotOff= posDez?R.drawable.conf_hot_on_p:R.drawable.conf_hot_on;
+
 	Conditioner(int iX, int iY, String sName, boolean bMetaInd, boolean bProtected, boolean bDoubleScale, boolean bQuick, int iReaction, int iScale)
 	{
 		super(iX, iY, imageCoolOff, 3, sName, bMetaInd, bProtected, bDoubleScale, bQuick, iReaction, iScale);
@@ -33,17 +34,17 @@ public class Conditioner extends BaseRegulator
 		
 		if(m_bPower)
 		{
-			iResId = R.drawable.conf_cool_on;
+			iResId = imageCoolOn;
 			
 			if(m_iValue > m_fValueMed)
-				iResId = R.drawable.conf_hot_on;
+				iResId = imageHotOn;
 		}
 		else
 		{
-			iResId = R.drawable.conf_cool_off;
+			iResId = imageCoolOff;
 
 			if(m_iValue > m_fValueMed)
-				iResId = R.drawable.conf_hot_off;
+				iResId = imageHotOff;
 		}
 
         if(m_pUI == null)

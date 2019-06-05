@@ -11,8 +11,8 @@ public class Curtains extends BaseRelay
 	public Curtains(int iX, int iY, String sName, boolean bMetaInd, boolean bProtected, boolean bDoubleScale, boolean bQuick, int iReaction, int iScale)
 	{
 		super(iX, iY,
-				newDez?R.drawable.curtains_close:R.drawable.id066,
-				newDez?R.drawable.curtains_open:R.drawable.id067,
+				newDez?(posDez?R.drawable.curtains_close_p:R.drawable.curtains_close):R.drawable.id066,
+				newDez?(posDez?R.drawable.curtains_open_p:R.drawable.curtains_open):R.drawable.id067,
 				2, sName, bMetaInd, bProtected, bDoubleScale, bQuick, iReaction, iScale);
 		// TODO Auto-generated constructor stub
 	}

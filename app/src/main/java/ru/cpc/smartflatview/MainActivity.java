@@ -9,7 +9,9 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
+import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -104,8 +106,6 @@ public class MainActivity extends AppCompatActivity {
 
     private HashMap<Integer, List<ExpandedMenuModel>> m_cMenu = new HashMap<>();
 
-
-
     @Override
     public void onRequestPermissionsResult(int requestCode,
                                            @NonNull String[] permissions,
@@ -192,8 +192,34 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onStart() {
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            Log.d("Glindor55", "MainActivity onStart ORIENTATION_LANDSCAPE");
+        }
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
+            Log.d("Glindor55", "MainActivity onStart ORIENTATION_PORTRAIT");
+        }
+        super.onStart();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.d("Glindor3","MainActivity onCreate 0");
+
+        Log.d("Glindor55", "setRequestedOrientation");
+        if(Config.portOrientation)
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        else
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+
+
+        Log.d("Glindor55", "onCreate");
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            Log.d("Glindor55", "MainActivity onCreate ORIENTATION_LANDSCAPE");
+        }
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
+            Log.d("Glindor55", "MainActivity onCreate ORIENTATION_PORTRAIT");
+        }
+
 
         RoboErrorReporter.bindReporter(this);
         StrictMode.ThreadPolicy policy =
@@ -257,16 +283,15 @@ public class MainActivity extends AppCompatActivity {
         }
 
         //Настраиваем боковое меню
-        /*
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        if (drawer != null)
-        {
-            drawer.setDrawerListener(toggle);
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
+            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+            ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                    this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+            if (drawer != null) {
+                drawer.addDrawerListener(toggle);
+            }
+            toggle.syncState();
         }
-        toggle.syncState();
-        */
         Log.d("Glindor3","MainActivity onCreate 6");
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);

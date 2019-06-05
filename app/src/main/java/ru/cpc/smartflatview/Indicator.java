@@ -16,7 +16,9 @@ import java.util.TimerTask;
 public abstract class Indicator
 {
 	protected static final String TAG = "SMARTFLAT" ;
-	protected static final boolean newDez  = true;
+	public static boolean newDez;
+	public static boolean posDez;
+
 
 	protected int m_iOldResID = -1;
 	protected int m_iNewResID = -1;
@@ -44,6 +46,8 @@ public abstract class Indicator
 	
 	protected Indicator(float fX, float fY, int iResID, int iSubType, String sName, boolean bMetaInd, boolean bProtected, boolean bDoubleSize, boolean bQuick, int iReaction, int iScale)
 	{
+		Log.d("Glindor56", "Ind("+sName+") newDez = "+Indicator.newDez+" posDez = "+Indicator.posDez);
+
 		m_pSubsystem = null;
 
 		m_fXPercent = fX;

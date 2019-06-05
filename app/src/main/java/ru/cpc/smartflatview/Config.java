@@ -51,28 +51,34 @@ public class Config
 	public int m_iPollPeriod = 2000;
 	public String m_sMasterCode = "1234";
 
-	public Config()
+	public static Boolean portOrientation;
+
+	public Config(Boolean port)
 	{
+
+		portOrientation = port;
 		Log.d("Glindor2","Начало Конфига");
 		DEMO = true;
 		
 		int subsystemIndex = 0;
 		int roomIndex = 0;
 
-/*
-		Subsystem subsystem0 = new Subsystem("0-0", subsystemIndex++, 2, 3, "0");
-		subsystem0.AddIndicator(new Macro(25, 15, "", "Я ушёл", false, false, false, true, 1, 2));
-		subsystem0.AddIndicator(new Macro(75, 15, "", "Я пришёл", false, false, false, true, 1, 2));
-		subsystem0.AddIndicator(new MotionSensor(25, 45, "Охрана", true, true, false, true, 1, 2));
-		subsystem0.AddIndicator(new FireSensor(75, 45, "Пож.система", true, true, false, true, 1, 2));
-		subsystem0.AddIndicator(new LeakageSensor(50, 81, "Протечки", true, false, false, true, 1, 2));
-*/
-		Subsystem subsystem0 = new Subsystem("0-0", subsystemIndex++, 3, 2, "0");
-		subsystem0.AddIndicator(new Macro(25, 25, "", "Я ушёл", false, false, false, true, 1, 2));
-		subsystem0.AddIndicator(new Macro(50, 25, "", "Я пришёл", false, false, false, true, 1, 2));
-		subsystem0.AddIndicator(new MotionSensor(75, 25, "Охрана", true, true, false, true, 1, 2));
-		subsystem0.AddIndicator(new FireSensor(37, 75, "Пож.система", true, true, false, true, 1, 2));
-		subsystem0.AddIndicator(new LeakageSensor(63, 75, "Протечки", true, false, false, true, 1, 2));
+		Subsystem subsystem0;
+		if(port) {
+			subsystem0 = new Subsystem("0-0", 0, 2, 3, "0");
+			subsystem0.AddIndicator(new Macro(25, 15, "", "Я ушёл", false, false, false, true, 1, 2));
+			subsystem0.AddIndicator(new Macro(75, 15, "", "Я пришёл", false, false, false, true, 1, 2));
+			subsystem0.AddIndicator(new MotionSensor(25, 45, "Охрана", true, true, false, true, 1, 2));
+			subsystem0.AddIndicator(new FireSensor(75, 45, "Пож.система", true, true, false, true, 1, 2));
+			subsystem0.AddIndicator(new LeakageSensor(50, 81, "Протечки", true, false, false, true, 1, 2));
+		}else {
+			subsystem0 = new Subsystem("0-0", 1, 3, 2, "0");
+			subsystem0.AddIndicator(new Macro(25, 25, "", "Я ушёл", false, false, false, true, 1, 2));
+			subsystem0.AddIndicator(new Macro(50, 25, "", "Я пришёл", false, false, false, true, 1, 2));
+			subsystem0.AddIndicator(new MotionSensor(75, 25, "Охрана", true, true, false, true, 1, 2));
+			subsystem0.AddIndicator(new FireSensor(37, 75, "Пож.система", true, true, false, true, 1, 2));
+			subsystem0.AddIndicator(new LeakageSensor(63, 75, "Протечки", true, false, false, true, 1, 2));
+		}
 
 		m_cSubsystems.add(subsystem0);
 
@@ -80,24 +86,27 @@ public class Config
 		m_cRooms.add(room0);
 
 		subsystemIndex = 0;
-/*
-		Subsystem subsystem1 = new Subsystem("1-0", subsystemIndex++, 3, 4, "0");
-		subsystem1.AddIndicator(new DimmerLamp(25, 12, "Бра", false, false, false, true, 1, 3));
-		subsystem1.AddIndicator(new Lamp(75, 12, "Ночник", false, false, false, true, 1, 3));
-		subsystem1.AddIndicator(new DimmerLamp(50, 37, "Люстра", false, false, false, true, 1, 3));
-		subsystem1.AddIndicator(new WarmFloor(25, 62, "Тепл.пол", false, false, false, true, 1, 3));
-		subsystem1.AddIndicator(new Conditioner(75, 62, "Кондиционер", false, false, false, true, 1, 3));
-		subsystem1.AddIndicator(new Curtains(25, 87, "Шторы", false, false, false, true, 1, 3));
-		subsystem1.AddIndicator(new FireSensor(75, 87, "Пож.датчик", false, true, false, true, 1, 3));
-*/
-		Subsystem subsystem1 = new Subsystem("1-0", subsystemIndex++, 4, 2, "0");
-		subsystem1.AddIndicator(new Lamp(25, 25, "Бра", false, false, false, true, 1, 3));
-		subsystem1.AddIndicator(new Lamp(50, 25, "Ночник", false, false, false, true, 1, 3));
-		subsystem1.AddIndicator(new Lamp(75, 25, "Люстра", false, false, false, true, 1, 3));
-		subsystem1.AddIndicator(new WarmFloor(13, 75, "Тепл.пол", false, false, false, true, 1, 3));
-		subsystem1.AddIndicator(new Conditioner(37, 75, "Кондиционер", false, false, false, true, 1, 3));
-		subsystem1.AddIndicator(new Curtains(63, 75, "Шторы", false, false, false, true, 1, 3));
-		subsystem1.AddIndicator(new FireSensor(87, 75, "Пож.датчик", false, true, false, true, 1, 3));
+		Subsystem subsystem1;
+		if(port) {
+			subsystem1 = new Subsystem("1-0", subsystemIndex++, 3, 4, "0");
+			subsystem1.AddIndicator(new Lamp(25, 12, "Бра", false, false, false, true, 1, 3));
+			subsystem1.AddIndicator(new Lamp(75, 12, "Ночник", false, false, false, true, 1, 3));
+			subsystem1.AddIndicator(new DimmerLamp(50, 37, "Люстра", false, false, false, true, 1, 3));
+			subsystem1.AddIndicator(new WarmFloor(25, 62, "Тепл.пол", false, false, false, true, 1, 3));
+			subsystem1.AddIndicator(new Conditioner(75, 62, "Кондиционер", false, false, false, true, 1, 3));
+			subsystem1.AddIndicator(new Curtains(25, 87, "Шторы", false, false, false, true, 1, 3));
+			subsystem1.AddIndicator(new FireSensor(75, 87, "Пож.датчик", false, true, false, true, 1, 3));
+		}else {
+
+			subsystem1 = new Subsystem("1-0", 0, 4, 2, "0");
+			subsystem1.AddIndicator(new Lamp(25, 25, "Бра", false, false, false, true, 1, 3));
+			subsystem1.AddIndicator(new Lamp(50, 25, "Ночник", false, false, false, true, 1, 3));
+			subsystem1.AddIndicator(new DimmerLamp(75, 25, "Люстра", false, false, false, true, 1, 3));
+			subsystem1.AddIndicator(new WarmFloor(13, 75, "Тепл.пол", false, false, false, true, 1, 3));
+			subsystem1.AddIndicator(new Conditioner(37, 75, "Кондиционер", false, false, false, true, 1, 3));
+			subsystem1.AddIndicator(new Curtains(63, 75, "Шторы", false, false, false, true, 1, 3));
+			subsystem1.AddIndicator(new FireSensor(87, 75, "Пож.датчик", false, true, false, true, 1, 3));
+		}
 
 		m_cSubsystems.add(subsystem1);
 
@@ -105,14 +114,27 @@ public class Config
 		m_cRooms.add(room1);
 
 		subsystemIndex = 0;
-		Subsystem subsystem1A = new Subsystem("1A-0", subsystemIndex++, 3, 4, "0");
-		subsystem1A.AddIndicator(new DimmerLamp(25, 12, "Бра", false, false, false, true, 1, 3));
-		subsystem1A.AddIndicator(new Lamp(75, 12, "Ночник", false, false, false, true, 1, 3));
-		subsystem1A.AddIndicator(new Lamp(25, 37, "Подсветка", false, false, false, true, 1, 3));
-		subsystem1A.AddIndicator(new DimmerLamp(75, 37, "Люстра", false, false, false, true, 1, 3));
-		subsystem1A.AddIndicator(new WarmFloor(25, 62, "Тепл.пол", false, false, false, true, 1, 3));
-		subsystem1A.AddIndicator(new Conditioner(75, 62, "Кондиционер", false, false, false, true, 1, 3));
-		subsystem1A.AddIndicator(new Curtains(50, 87, "Шторы", false, false, false, true, 1, 3));
+		Subsystem subsystem1A;
+        if(port){
+            subsystem1A = new Subsystem("1A-0", subsystemIndex++, 3, 4, "0");
+            subsystem1A.AddIndicator(new DimmerLamp(25, 12, "Бра", false, false, false, true, 1, 3));
+            subsystem1A.AddIndicator(new Lamp(75, 12, "Ночник", false, false, false, true, 1, 3));
+            subsystem1A.AddIndicator(new Lamp(25, 37, "Подсветка", false, false, false, true, 1, 3));
+            subsystem1A.AddIndicator(new DimmerLamp(75, 37, "Люстра", false, false, false, true, 1, 3));
+            subsystem1A.AddIndicator(new WarmFloor(25, 62, "Тепл.пол", false, false, false, true, 1, 3));
+            subsystem1A.AddIndicator(new Conditioner(75, 62, "Кондиционер", false, false, false, true, 1, 3));
+            subsystem1A.AddIndicator(new Curtains(50, 87, "Шторы", false, false, false, true, 1, 3));
+        }else{
+            subsystem1A = new Subsystem("1A-0", subsystemIndex++, 4, 2, "0");
+            subsystem1A.AddIndicator(new DimmerLamp(12, 25, "Бра", false, false, false, true, 1, 3));
+            subsystem1A.AddIndicator(new Lamp(37, 25, "Ночник", false, false, false, true, 1, 3));
+            subsystem1A.AddIndicator(new Lamp(62, 25, "Подсветка", false, false, false, true, 1, 3));
+            subsystem1A.AddIndicator(new DimmerLamp(87, 25, "Люстра", false, false, false, true, 1, 3));
+            subsystem1A.AddIndicator(new WarmFloor(25, 75, "Тепл.пол", false, false, false, true, 1, 3));
+            subsystem1A.AddIndicator(new Conditioner(50, 75, "Кондиционер", false, false, false, true, 1, 3));
+            subsystem1A.AddIndicator(new Curtains(75, 75, "Шторы", false, false, false, true, 1, 3));
+        }
+
 
 		m_cSubsystems.add(subsystem1A);
 
@@ -120,11 +142,20 @@ public class Config
 		m_cRooms.add(room1A);
 
 		subsystemIndex = 0;
-		Subsystem subsystem1B1 = new Subsystem("1B1-0", subsystemIndex++, 3, 4, "0");
-		subsystem1B1.AddIndicator(new DimmerLamp(25, 25, "Люстра", false, false, false, true, 1, 3));
-		subsystem1B1.AddIndicator(new Lamp(75, 25, "Ночник", false, false, false, true, 1, 3));
-		subsystem1B1.AddIndicator(new WarmFloor(25, 75, "Тепл.пол", false, false, false, true, 1, 3));
-		subsystem1B1.AddIndicator(new Curtains(75, 75, "Шторы", false, false, false, true, 1, 3));
+		Subsystem subsystem1B1;
+		if(port) {
+            subsystem1B1 = new Subsystem("1B1-0", subsystemIndex++, 3, 4, "0");
+            subsystem1B1.AddIndicator(new DimmerLamp(25, 25, "Люстра", false, false, false, true, 1, 3));
+            subsystem1B1.AddIndicator(new Lamp(75, 25, "Ночник", false, false, false, true, 1, 3));
+            subsystem1B1.AddIndicator(new WarmFloor(25, 75, "Тепл.пол", false, false, false, true, 1, 3));
+            subsystem1B1.AddIndicator(new Curtains(75, 75, "Шторы", false, false, false, true, 1, 3));
+        }else{
+            subsystem1B1 = new Subsystem("1B1-0", subsystemIndex++, 3, 2, "0");
+            subsystem1B1.AddIndicator(new DimmerLamp(33, 25, "Люстра", false, false, false, true, 1, 3));
+            subsystem1B1.AddIndicator(new Lamp(66, 25, "Ночник", false, false, false, true, 1, 3));
+            subsystem1B1.AddIndicator(new WarmFloor(33, 75, "Тепл.пол", false, false, false, true, 1, 3));
+            subsystem1B1.AddIndicator(new Curtains(66, 75, "Шторы", false, false, false, true, 1, 3));
+        }
 
 		m_cSubsystems.add(subsystem1B1);
 
@@ -132,11 +163,22 @@ public class Config
 		m_cRooms.add(room1B1);
 
 		subsystemIndex = 0;
-		Subsystem subsystem1B2 = new Subsystem("1B2-0", subsystemIndex++, 3, 4, "0");
-		subsystem1B2.AddIndicator(new DimmerLamp(25, 25, "Люстра", false, false, false, true, 1, 3));
-		subsystem1B2.AddIndicator(new Lamp(75, 25, "Ночник", false, false, false, true, 1, 3));
-		subsystem1B2.AddIndicator(new WarmFloor(25, 75, "Тепл.пол", false, false, false, true, 1, 3));
-		subsystem1B2.AddIndicator(new Curtains(75, 75, "Шторы", false, false, false, true, 1, 3));
+		Subsystem subsystem1B2;
+        if(port){
+            subsystem1B2 = new Subsystem("1B2-0", subsystemIndex++, 3, 4, "0");
+            subsystem1B2.AddIndicator(new DimmerLamp(25, 25, "Люстра", false, false, false, true, 1, 3));
+            subsystem1B2.AddIndicator(new Lamp(75, 25, "Ночник", false, false, false, true, 1, 3));
+            subsystem1B2.AddIndicator(new WarmFloor(25, 75, "Тепл.пол", false, false, false, true, 1, 3));
+            subsystem1B2.AddIndicator(new Curtains(75, 75, "Шторы", false, false, false, true, 1, 3));
+        }else{
+            subsystem1B2 = new Subsystem("1B2-0", subsystemIndex++, 3, 2, "0");
+            subsystem1B2.AddIndicator(new DimmerLamp(33, 25, "Люстра", false, false, false, true, 1, 3));
+            subsystem1B2.AddIndicator(new Lamp(66, 25, "Ночник", false, false, false, true, 1, 3));
+            subsystem1B2.AddIndicator(new WarmFloor(33, 75, "Тепл.пол", false, false, false, true, 1, 3));
+            subsystem1B2.AddIndicator(new Curtains(66, 75, "Шторы", false, false, false, true, 1, 3));
+        }
+
+
 
 		m_cSubsystems.add(subsystem1B2);
 
@@ -144,11 +186,20 @@ public class Config
 		m_cRooms.add(room1B2);
 
 		subsystemIndex = 0;
-		Subsystem subsystem1B3 = new Subsystem("1B3-0", subsystemIndex++, 3, 4, "0");
-		subsystem1B3.AddIndicator(new DimmerLamp(25, 25, "Люстра", false, false, false, true, 1, 3));
-		subsystem1B3.AddIndicator(new Lamp(75, 25, "Ночник", false, false, false, true, 1, 3));
-		subsystem1B3.AddIndicator(new Battery(25, 75, "Батареи", false, false, false, true, 1, 3));
-		subsystem1B3.AddIndicator(new Curtains(75, 75, "Шторы", false, false, false, true, 1, 3));
+        Subsystem subsystem1B3;
+		if(port){
+            subsystem1B3 = new Subsystem("1B3-0", subsystemIndex++, 3, 4, "0");
+            subsystem1B3.AddIndicator(new DimmerLamp(25, 25, "Люстра", false, false, false, true, 1, 3));
+            subsystem1B3.AddIndicator(new Lamp(75, 25, "Ночник", false, false, false, true, 1, 3));
+            subsystem1B3.AddIndicator(new Battery(25, 75, "Батареи", false, false, false, true, 1, 3));
+            subsystem1B3.AddIndicator(new Curtains(75, 75, "Шторы", false, false, false, true, 1, 3));
+        }else{
+            subsystem1B3 = new Subsystem("1B3-0", subsystemIndex++, 3, 2, "0");
+            subsystem1B3.AddIndicator(new DimmerLamp(33, 25, "Люстра", false, false, false, true, 1, 3));
+            subsystem1B3.AddIndicator(new Lamp(66, 25, "Ночник", false, false, false, true, 1, 3));
+            subsystem1B3.AddIndicator(new WarmFloor(33, 75, "Тепл.пол", false, false, false, true, 1, 3));
+            subsystem1B3.AddIndicator(new Curtains(66, 75, "Шторы", false, false, false, true, 1, 3));
+        }
 
 		m_cSubsystems.add(subsystem1B3);
 
@@ -156,36 +207,38 @@ public class Config
 		m_cRooms.add(room1B3);
 
 		subsystemIndex = 0;
-		/*
-		Subsystem subsystem2 = new Subsystem("2-0", subsystemIndex++, 3, 4, "0");
-		subsystem2.AddIndicator(new DimmerLamp(15, 12, "Люстра 1", false, false, false, true, 1, 3));
-		subsystem2.AddIndicator(new DimmerLamp(50, 12, "Люстра 2", false, false, false, true, 1, 3));
-		subsystem2.AddIndicator(new DimmerLamp(85, 12, "Люстра 3", false, false, false, true, 1, 3));
-		subsystem2.AddIndicator(new Lamp(15, 37, "Подсветка", false, false, false, true, 1, 3));
-		subsystem2.AddIndicator(new Lamp(50, 37, "Подсветка", false, false, false, true, 1, 3));
-		subsystem2.AddIndicator(new Lamp(85, 37, "Подсветка", false, false, false, true, 1, 3));
-		subsystem2.AddIndicator(new Fan(15, 62, "Вентиляция 1", false, false, false, true, 1, 3));
-		subsystem2.AddIndicator(new Conditioner(50, 62, "Кондиционер", false, false, false, true, 1, 3));
-		subsystem2.AddIndicator(new ClimatFan(85, 62, "Вентиляция 2", false, false, false, true, 1, 3).Bind("1","1","1","1","1","0",false,"16","35", "0", "100", "0"));
-		subsystem2.AddIndicator(new Curtains(15, 87, "Шторы юг", false, false, false, true, 1, 3));
-		subsystem2.AddIndicator(new Curtains(50, 87, "Шторы запад", false, false, false, true, 1, 3));
-		subsystem2.AddIndicator(new FireSensor(85, 87, "Пож.датчик", false, true, false, true, 1, 3));
-*/
-		Subsystem subsystem2 = new Subsystem("2-0", subsystemIndex++, 5, 3, "0");
-		subsystem2.AddIndicator(new Lamp(10, 17, "Люстра 1", false, false, false, true, 1, 3));
-		subsystem2.AddIndicator(new Lamp(30, 17, "Люстра 2", false, false, false, true, 1, 3));
-		subsystem2.AddIndicator(new Lamp(50, 17, "Люстра 3", false, false, false, true, 1, 3));
-		subsystem2.AddIndicator(new Lamp(70, 17, "Подсветка", false, false, false, true, 1, 3));
-		subsystem2.AddIndicator(new Lamp(90, 17, "Подсветка", false, false, false, true, 1, 3));
+		Subsystem subsystem2;
+		if(port) {
+			 subsystem2 = new Subsystem("2-0", subsystemIndex++, 3, 4, "0");
+			subsystem2.AddIndicator(new DimmerLamp(15, 12, "Люстра 1", false, false, false, true, 1, 3));
+			subsystem2.AddIndicator(new DimmerLamp(50, 12, "Люстра 2", false, false, false, true, 1, 3));
+			subsystem2.AddIndicator(new DimmerLamp(85, 12, "Люстра 3", false, false, false, true, 1, 3));
+			subsystem2.AddIndicator(new Lamp(15, 37, "Подсветка", false, false, false, true, 1, 3));
+			subsystem2.AddIndicator(new Lamp(50, 37, "Подсветка", false, false, false, true, 1, 3));
+			subsystem2.AddIndicator(new Lamp(85, 37, "Подсветка", false, false, false, true, 1, 3));
+			subsystem2.AddIndicator(new Fan(15, 62, "Вентиляция 1", false, false, false, true, 1, 3));
+			subsystem2.AddIndicator(new Conditioner(50, 62, "Кондиционер", false, false, false, true, 1, 3));
+			subsystem2.AddIndicator(new ClimatFan(85, 62, "Вентиляция 2", false, false, false, true, 1, 3).Bind("1", "1", "1", "1", "1", "0", false, "16", "35", "0", "100", "0"));
+			subsystem2.AddIndicator(new Curtains(15, 87, "Шторы юг", false, false, false, true, 1, 3));
+			subsystem2.AddIndicator(new Curtains(50, 87, "Шторы запад", false, false, false, true, 1, 3));
+			subsystem2.AddIndicator(new FireSensor(85, 87, "Пож.датчик", false, true, false, true, 1, 3));
+		}else {
+			 subsystem2 = new Subsystem("2-0", subsystemIndex++, 5, 3, "0");
+			subsystem2.AddIndicator(new DimmerLamp(10, 17, "Люстра 1", false, false, false, true, 1, 3));
+			subsystem2.AddIndicator(new DimmerLamp(30, 17, "Люстра 2", false, false, false, true, 1, 3));
+			subsystem2.AddIndicator(new DimmerLamp(50, 17, "Люстра 3", false, false, false, true, 1, 3));
+			subsystem2.AddIndicator(new Lamp(70, 17, "Подсветка", false, false, false, true, 1, 3));
+			subsystem2.AddIndicator(new Lamp(90, 17, "Подсветка", false, false, false, true, 1, 3));
 
-		subsystem2.AddIndicator(new Lamp(50, 50, "Подсветка", false, false, false, true, 1, 3));
-		subsystem2.AddIndicator(new Fan(10, 50, "Вентиляция 1", false, false, false, true, 1, 3));
-		subsystem2.AddIndicator(new Conditioner(90, 50, "Кондиционер", false, false, false, true, 1, 3));
+			subsystem2.AddIndicator(new Lamp(50, 50, "Подсветка", false, false, false, true, 1, 3));
+			subsystem2.AddIndicator(new Fan(10, 50, "Вентиляция 1", false, false, false, true, 1, 3));
+			subsystem2.AddIndicator(new Conditioner(90, 50, "Кондиционер", false, false, false, true, 1, 3));
 
-		subsystem2.AddIndicator(new ClimatFan(10, 83, "Вентиляция 2", false, false, false, true, 1, 3).Bind("1","1","1","1","1","0",false,"16","35", "0", "100", "0"));
-		subsystem2.AddIndicator(new Curtains(30, 83, "Шторы юг", false, false, false, true, 1, 3));
-		subsystem2.AddIndicator(new Curtains(70, 83, "Шторы запад", false, false, false, true, 1, 3));
-		subsystem2.AddIndicator(new FireSensor(90, 83, "Пож.датчик", false, true, false, true, 1, 3));
+			subsystem2.AddIndicator(new ClimatFan(10, 83, "Вентиляция 2", false, false, false, true, 1, 3).Bind("1", "1", "1", "1", "1", "0", false, "16", "35", "0", "100", "0"));
+			subsystem2.AddIndicator(new Curtains(30, 83, "Шторы юг", false, false, false, true, 1, 3));
+			subsystem2.AddIndicator(new Curtains(70, 83, "Шторы запад", false, false, false, true, 1, 3));
+			subsystem2.AddIndicator(new FireSensor(90, 83, "Пож.датчик", false, true, false, true, 1, 3));
+		}
 
 		Subsystem subsystem2media = new Subsystem("2-1", subsystemIndex++, 5, 6, "1");
 
@@ -214,10 +267,19 @@ public class Config
 		m_cRooms.add(room2);
 
 		subsystemIndex = 0;
-		Subsystem subsystem4a = new Subsystem("4A-0", subsystemIndex++, 3, 4, "0");
-		subsystem4a.AddIndicator(new LeakageSensor(50, 25, "Протечка", false, false, false, true, 1, 3));
-		subsystem4a.AddIndicator(new Valve(25, 66, "Хол. вода", false, false, false, true, 1, 3));
-		subsystem4a.AddIndicator(new Valve(75, 66, "Гор. вода", false, false, false, true, 1, 3));
+        Subsystem subsystem4a;
+		if(port) {
+            subsystem4a = new Subsystem("4A-0", subsystemIndex++, 3, 4, "0");
+            subsystem4a.AddIndicator(new LeakageSensor(50, 25, "Протечка", false, false, false, true, 1, 3));
+            subsystem4a.AddIndicator(new Valve(25, 66, "Хол. вода", false, false, false, true, 1, 3));
+            subsystem4a.AddIndicator(new Valve(75, 66, "Гор. вода", false, false, false, true, 1, 3));
+        }
+		else{
+            subsystem4a = new Subsystem("4A-0", subsystemIndex++, 3, 1, "0");
+            subsystem4a.AddIndicator(new LeakageSensor(15, 50, "Протечка", false, false, false, true, 1, 3));
+            subsystem4a.AddIndicator(new Valve(50, 50, "Хол. вода", false, false, false, true, 1, 3));
+            subsystem4a.AddIndicator(new Valve(85, 50, "Гор. вода", false, false, false, true, 1, 3));
+        }
 
 		m_cSubsystems.add(subsystem4a);
 
@@ -225,10 +287,20 @@ public class Config
 		m_cRooms.add(room4a);
 
 		subsystemIndex = 0;
-		Subsystem subsystem4b = new Subsystem("4B-0", subsystemIndex++, 3, 4, "0");
-		subsystem4b.AddIndicator(new LeakageSensor(50, 25, "Протечка", false, false, false, true, 1, 3));
-		subsystem4b.AddIndicator(new Valve(25, 66, "Хол. вода", false, false, false, true, 1, 3));
-		subsystem4b.AddIndicator(new Valve(75, 66, "Гор. вода", false, false, false, true, 1, 3));
+
+		Subsystem subsystem4b;
+		if(port) {
+            subsystem4b = new Subsystem("4B-0", subsystemIndex++, 3, 4, "0");
+            subsystem4b.AddIndicator(new LeakageSensor(50, 25, "Протечка", false, false, false, true, 1, 3));
+            subsystem4b.AddIndicator(new Valve(25, 66, "Хол. вода", false, false, false, true, 1, 3));
+            subsystem4b.AddIndicator(new Valve(75, 66, "Гор. вода", false, false, false, true, 1, 3));
+        }else{
+            subsystem4b = new Subsystem("4B-0", subsystemIndex++, 3, 2, "0");
+            subsystem4b.AddIndicator(new LeakageSensor(30, 25, "Протечка", false, false, false, true, 1, 3));
+            subsystem4b.AddIndicator(new Valve(70, 25, "Хол. вода", false, false, false, true, 1, 3));
+            subsystem4b.AddIndicator(new Valve(50, 75, "Гор. вода", false, false, false, true, 1, 3));
+        }
+
 
 		m_cSubsystems.add(subsystem4b);
 
@@ -236,10 +308,19 @@ public class Config
 		m_cRooms.add(room4b);
 
 		subsystemIndex = 0;
-		Subsystem subsystem4c = new Subsystem("4C-0", subsystemIndex++, 3, 4, "0");
-		subsystem4c.AddIndicator(new LeakageSensor(50, 25, "Протечка", false, false, false, true, 1, 3));
-		subsystem4c.AddIndicator(new Valve(25, 66, "Хол. вода", false, false, false, true, 1, 3));
-		subsystem4c.AddIndicator(new Valve(75, 66, "Гор. вода", false, false, false, true, 1, 3));
+        Subsystem subsystem4c;
+		if(port){
+            subsystem4c = new Subsystem("4C-0", subsystemIndex++, 3, 4, "0");
+            subsystem4c.AddIndicator(new LeakageSensor(50, 25, "Протечка", false, false, false, true, 1, 3));
+            subsystem4c.AddIndicator(new Valve(25, 66, "Хол. вода", false, false, false, true, 1, 3));
+            subsystem4c.AddIndicator(new Valve(75, 66, "Гор. вода", false, false, false, true, 1, 3));
+		}
+		else{
+            subsystem4c = new Subsystem("4C-0", subsystemIndex++, 3, 1, "0");
+            subsystem4c.AddIndicator(new LeakageSensor(15, 50, "Протечка", false, false, false, true, 1, 3));
+            subsystem4c.AddIndicator(new Valve(50, 50, "Хол. вода", false, false, false, true, 1, 3));
+            subsystem4c.AddIndicator(new Valve(85, 50, "Гор. вода", false, false, false, true, 1, 3));
+        }
 
 		m_cSubsystems.add(subsystem4c);
 
@@ -247,13 +328,25 @@ public class Config
 		m_cRooms.add(room4c);
 
 		subsystemIndex = 0;
-		Subsystem subsystem3 = new Subsystem("3-0", subsystemIndex++, 3, 4, "0");
-		subsystem3.AddIndicator(new Lamp(25, 15, "Освещение", false, false, false, true, 1, 3));
-		subsystem3.AddIndicator(new PowerControl(75, 15, "Розетка", false, false, false, true, 1, 3));
-		subsystem3.AddIndicator(new FireSensor(25, 45, "Пож.датчик", false, true, false, true, 1, 3));
-		subsystem3.AddIndicator(new MotionSensor(75, 45, "Дат.движения", false, true, false, true, 1, 3));
-		subsystem3.AddIndicator(new Door(25, 81, "Ворота", false, true, false, true, 1, 3));
-		subsystem3.AddIndicator(new Door2(75, 81, "Ворота2", false, true, false, true, 1, 3));
+        Subsystem subsystem3;
+        if(port){
+            subsystem3 = new Subsystem("3-0", subsystemIndex++, 3, 4, "0");
+            subsystem3.AddIndicator(new Lamp(25, 15, "Освещение", false, false, false, true, 1, 3));
+            subsystem3.AddIndicator(new PowerControl(75, 15, "Розетка", false, false, false, true, 1, 3));
+            subsystem3.AddIndicator(new FireSensor(25, 45, "Пож.датчик", false, true, false, true, 1, 3));
+            subsystem3.AddIndicator(new MotionSensor(75, 45, "Дат.движения", false, true, false, true, 1, 3));
+            subsystem3.AddIndicator(new Door(25, 81, "Ворота", false, true, false, true, 1, 3));
+            subsystem3.AddIndicator(new Door2(75, 81, "Ворота2", false, true, false, true, 1, 3));
+        }else{
+            subsystem3 = new Subsystem("3-0", subsystemIndex++, 4, 2, "0");
+            subsystem3.AddIndicator(new Lamp(17, 25, "Освещение", false, false, false, true, 1, 3));
+            subsystem3.AddIndicator(new PowerControl(50, 25, "Розетка", false, false, false, true, 1, 3));
+            subsystem3.AddIndicator(new FireSensor(83, 25, "Пож.датчик", false, true, false, true, 1, 3));
+            subsystem3.AddIndicator(new MotionSensor(17, 75, "Дат.движения", false, true, false, true, 1, 3));
+            subsystem3.AddIndicator(new Door(50, 75, "Ворота", false, true, false, true, 1, 3));
+            subsystem3.AddIndicator(new Door2(83, 75, "Ворота2", false, true, false, true, 1, 3));
+
+        }
 
 		m_cSubsystems.add(subsystem3);
 
@@ -261,18 +354,30 @@ public class Config
 		m_cRooms.add(room3);
 
 		subsystemIndex = 0;
-		Subsystem subsystem3a = new Subsystem("3A-0", subsystemIndex++, 3, 4, "0");
-		subsystem3a.AddIndicator(new Lamp(25, 15, "Освещение", false, false, false, true, 1, 3));
-		subsystem3a.AddIndicator(new PowerControl(75, 15, "Розетка", false, false, false, true, 1, 3));
-		subsystem3a.AddIndicator(new FireSensor(25, 45, "Пож.датчик", false, true, false, true, 1, 3));
-		subsystem3a.AddIndicator(new MotionSensor(75, 45, "Дат.движения", false, true, false, true, 1, 3));
-		subsystem3a.AddIndicator(new Door(25, 81, "Ворота", false, true, false, true, 1, 3));
-		subsystem3a.AddIndicator(new Door2(75, 81, "Ворота2", false, true, false, true, 1, 3));
+		Subsystem subsystem3a;
+		if(port){
+            subsystem3a = new Subsystem("3A-0", subsystemIndex++, 3, 4, "0");
+            subsystem3a.AddIndicator(new Lamp(25, 15, "Освещение", false, false, false, true, 1, 3));
+            subsystem3a.AddIndicator(new PowerControl(75, 15, "Розетка", false, false, false, true, 1, 3));
+            subsystem3a.AddIndicator(new FireSensor(25, 45, "Пож.датчик", false, true, false, true, 1, 3));
+            subsystem3a.AddIndicator(new MotionSensor(75, 45, "Дат.движения", false, true, false, true, 1, 3));
+            subsystem3a.AddIndicator(new Door(25, 81, "Ворота", false, true, false, true, 1, 3));
+            subsystem3a.AddIndicator(new Door2(75, 81, "Ворота2", false, true, false, true, 1, 3));
+		}else {
+            subsystem3a = new Subsystem("3A-0", subsystemIndex++, 4, 2, "0");
+            subsystem3a.AddIndicator(new Lamp(17, 25, "Освещение", false, false, false, true, 1, 3));
+            subsystem3a.AddIndicator(new PowerControl(50, 25, "Розетка", false, false, false, true, 1, 3));
+            subsystem3a.AddIndicator(new FireSensor(83, 25, "Пож.датчик", false, true, false, true, 1, 3));
+            subsystem3a.AddIndicator(new MotionSensor(17, 75,  "Дат.движения", false, true, false, true, 1, 3));
+            subsystem3a.AddIndicator(new Door(50, 75, "Ворота", false, true, false, true, 1, 3));
+            subsystem3a.AddIndicator(new Door2(83, 75, "Ворота2", false, true, false, true, 1, 3));
+        }
 
 		m_cSubsystems.add(subsystem3a);
 
 		Room room3a = new Room(roomIndex++, "Гараж сына", "room3a").AddSubsystem(subsystem3a);
 		m_cRooms.add(room3a);
+
 
 //		Subsystem subsystem5 = new Subsystem(getContext(), index++, 4, 5, "Медиа", m_pMenu).SetListeners(onRoomMenuClickListener, onRoomMenuLongClickListener, onRoomAlarmListener);
 //		subsystem5.AddIndicator(new ButtonOn(this, getContext(), 15, 15, "", false, false));
@@ -289,47 +394,94 @@ public class Config
 //		m_pSwitcher.addView(subsystem5);
 
 		subsystemIndex = 0;
-		Subsystem subsystem5 = new Subsystem("56-0", subsystemIndex++, 5, 6, "0");
-		subsystem5.AddIndicator(new Lamp(10, 10, "Дорожка 1", false, false, false, true, 1, 5));
-		subsystem5.AddIndicator(new Lamp(30, 10, "Дорожка 2", false, false, false, true, 1, 5));
-		subsystem5.AddIndicator(new Lamp(50, 10, "Дорожка 3", false, false, false, true, 1, 5));
-		subsystem5.AddIndicator(new Lamp(70, 10, "Дорожка 4", false, false, false, true, 1, 5));
-		subsystem5.AddIndicator(new Lamp(90, 10, "Дорожка 5", false, false, false, true, 1, 5));
-		subsystem5.AddIndicator(new Lamp(10, 30, "Дорожка 6", false, false, false, true, 1, 5));
-		subsystem5.AddIndicator(new Lamp(30, 30, "Дорожка 7", false, false, false, true, 1, 5));
-		subsystem5.AddIndicator(new Lamp(50, 30, "Дорожка 8", false, false, false, true, 1, 5));
-		subsystem5.AddIndicator(new Lamp(70, 30, "Дорожка 9", false, false, false, true, 1, 5));
-		subsystem5.AddIndicator(new Lamp(90, 30, "Дорожка 10", false, false, false, true, 1, 5));
-		subsystem5.AddIndicator(new DimmerLamp(10, 50, "Беседка 1", false, false, false, true, 1, 5));
-		subsystem5.AddIndicator(new DimmerLamp(30, 50, "Беседка 2", false, false, false, true, 1, 5));
-		subsystem5.AddIndicator(new DimmerLamp(50, 50, "Беседка 3", false, false, false, true, 1, 5));
-		subsystem5.AddIndicator(new DimmerLamp(70, 50, "Беседка 4", false, false, false, true, 1, 5));
-		subsystem5.AddIndicator(new DimmerLamp(90, 50, "Беседка 5", false, false, false, true, 1, 5));
-		subsystem5.AddIndicator(new DimmerLamp(20, 70, "Фонтан 1", false, false, false, true, 1, 5));
-		subsystem5.AddIndicator(new DimmerLamp(40, 70, "Фонтан 2", false, false, false, true, 1, 5));
-		subsystem5.AddIndicator(new DimmerLamp(60, 70, "Фонтан 3", false, false, false, true, 1, 5));
-		subsystem5.AddIndicator(new DimmerLamp(80, 70, "Фонтан 4", false, false, false, true, 1, 5));
-		subsystem5.AddIndicator(new Lamp(33, 90, "Фасад 1", false, false, false, true, 1, 5));
-		subsystem5.AddIndicator(new Lamp(66, 90, "Фасад 2", false, false, false, true, 1, 5));
+		Subsystem subsystem5;
+		if(port){
+			subsystem5 = new Subsystem("56-0", subsystemIndex++, 5, 6, "0");
+			subsystem5.AddIndicator(new Lamp(10, 10, "Дорожка 1", false, false, false, true, 1, 5));
+			subsystem5.AddIndicator(new Lamp(30, 10, "Дорожка 2", false, false, false, true, 1, 5));
+			subsystem5.AddIndicator(new Lamp(50, 10, "Дорожка 3", false, false, false, true, 1, 5));
+			subsystem5.AddIndicator(new Lamp(70, 10, "Дорожка 4", false, false, false, true, 1, 5));
+			subsystem5.AddIndicator(new Lamp(90, 10, "Дорожка 5", false, false, false, true, 1, 5));
+			subsystem5.AddIndicator(new Lamp(10, 30, "Дорожка 6", false, false, false, true, 1, 5));
+			subsystem5.AddIndicator(new Lamp(30, 30, "Дорожка 7", false, false, false, true, 1, 5));
+			subsystem5.AddIndicator(new Lamp(50, 30, "Дорожка 8", false, false, false, true, 1, 5));
+			subsystem5.AddIndicator(new Lamp(70, 30, "Дорожка 9", false, false, false, true, 1, 5));
+			subsystem5.AddIndicator(new Lamp(90, 30, "Дорожка 10", false, false, false, true, 1, 5));
+			subsystem5.AddIndicator(new DimmerLamp(10, 50, "Беседка 1", false, false, false, true, 1, 5));
+			subsystem5.AddIndicator(new DimmerLamp(30, 50, "Беседка 2", false, false, false, true, 1, 5));
+			subsystem5.AddIndicator(new DimmerLamp(50, 50, "Беседка 3", false, false, false, true, 1, 5));
+			subsystem5.AddIndicator(new DimmerLamp(70, 50, "Беседка 4", false, false, false, true, 1, 5));
+			subsystem5.AddIndicator(new DimmerLamp(90, 50, "Беседка 5", false, false, false, true, 1, 5));
+			subsystem5.AddIndicator(new DimmerLamp(20, 70, "Фонтан 1", false, false, false, true, 1, 5));
+			subsystem5.AddIndicator(new DimmerLamp(40, 70, "Фонтан 2", false, false, false, true, 1, 5));
+			subsystem5.AddIndicator(new DimmerLamp(60, 70, "Фонтан 3", false, false, false, true, 1, 5));
+			subsystem5.AddIndicator(new DimmerLamp(80, 70, "Фонтан 4", false, false, false, true, 1, 5));
+			subsystem5.AddIndicator(new Lamp(33, 90, "Фасад 1", false, false, false, true, 1, 5));
+			subsystem5.AddIndicator(new Lamp(66, 90, "Фасад 2", false, false, false, true, 1, 5));
+		}else {
+			subsystem5 = new Subsystem("56-0", subsystemIndex++, 8, 4, "0");
+			subsystem5.AddIndicator(new Lamp(9, 16, "Дорожка 1", false, false, false, true, 1, 5));
+			subsystem5.AddIndicator(new Lamp(18, 16, "Дорожка 2", false, false, false, true, 1, 5));
+			subsystem5.AddIndicator(new Lamp(27, 16, "Дорожка 3", false, false, false, true, 1, 5));
+			subsystem5.AddIndicator(new Lamp(36, 16, "Дорожка 4", false, false, false, true, 1, 5));
+			subsystem5.AddIndicator(new Lamp(45, 16, "Дорожка 5", false, false, false, true, 1, 5));
+			subsystem5.AddIndicator(new Lamp(54, 16, "Дорожка 6", false, false, false, true, 1, 5));
+			subsystem5.AddIndicator(new Lamp(63, 16, "Дорожка 7", false, false, false, true, 1, 5));
+			subsystem5.AddIndicator(new Lamp(72, 16, "Дорожка 8", false, false, false, true, 1, 5));
+			subsystem5.AddIndicator(new Lamp(81, 16, "Дорожка 9", false, false, false, true, 1, 5));
+			subsystem5.AddIndicator(new Lamp(90, 16, "Дорожка 10", false, false, false, true, 1, 5));
+			subsystem5.AddIndicator(new DimmerLamp(10, 62, "Беседка 1", false, false, false, true, 1, 5));
+			subsystem5.AddIndicator(new DimmerLamp(30, 62, "Беседка 2", false, false, false, true, 1, 5));
+			subsystem5.AddIndicator(new DimmerLamp(50, 62, "Беседка 3", false, false, false, true, 1, 5));
+			subsystem5.AddIndicator(new DimmerLamp(70, 62, "Беседка 4", false, false, false, true, 1, 5));
+			subsystem5.AddIndicator(new DimmerLamp(90, 62, "Беседка 5", false, false, false, true, 1, 5));
+			subsystem5.AddIndicator(new DimmerLamp(20, 86, "Фонтан 1", false, false, false, true, 1, 5));
+			subsystem5.AddIndicator(new DimmerLamp(40, 86, "Фонтан 2", false, false, false, true, 1, 5));
+			subsystem5.AddIndicator(new DimmerLamp(60, 86, "Фонтан 3", false, false, false, true, 1, 5));
+			subsystem5.AddIndicator(new DimmerLamp(80, 86, "Фонтан 4", false, false, false, true, 1, 5));
+			subsystem5.AddIndicator(new Lamp(33, 37, "Фасад 1", false, false, false, true, 1, 5));
+			subsystem5.AddIndicator(new Lamp(66, 37, "Фасад 2", false, false, false, true, 1, 5));
+
+		}
+
 
 		m_cSubsystems.add(subsystem5);
 
-		Subsystem subsystem6 = new Subsystem("56-1", subsystemIndex++, 4, 5, "0");
-		subsystem6.AddIndicator(new Lamp(13, 13, "Дорожка 1", false, false, false, true, 1, 4));
-		subsystem6.AddIndicator(new Lamp(37, 13, "Дорожка 2", false, false, false, true, 1, 4));
-		subsystem6.AddIndicator(new Lamp(63, 13, "Дорожка 3", false, false, false, true, 1, 4));
-		subsystem6.AddIndicator(new Lamp(87, 13, "Дорожка 4", false, false, false, true, 1, 4));
-		subsystem6.AddIndicator(new Lamp(13, 37, "Дорожка 5", false, false, false, true, 1, 4));
-		subsystem6.AddIndicator(new Lamp(37, 37, "Дорожка 6", false, false, false, true, 1, 4));
-		subsystem6.AddIndicator(new Lamp(63, 37, "Дорожка 7", false, false, false, true, 1, 4));
-		subsystem6.AddIndicator(new Lamp(87, 37, "Дорожка 8", false, false, false, true, 1, 4));
-		subsystem6.AddIndicator(new DimmerLamp(13, 63, "Беседка 1", false, false, false, true, 1, 4));
-		subsystem6.AddIndicator(new DimmerLamp(37, 63, "Беседка 2", false, false, false, true, 1, 4));
-		subsystem6.AddIndicator(new DimmerLamp(63, 63, "Беседка 3", false, false, false, true, 1, 4));
-		subsystem6.AddIndicator(new DimmerLamp(87, 63, "Беседка 4", false, false, false, true, 1, 4));
-		subsystem6.AddIndicator(new DimmerLamp(25, 87, "Фонтан 1", false, false, false, true, 1, 4));
-		subsystem6.AddIndicator(new DimmerLamp(50, 87, "Фонтан 2", false, false, false, true, 1, 4));
-		subsystem6.AddIndicator(new DimmerLamp(75, 87, "Фонтан 3", false, false, false, true, 1, 4));
+		Subsystem subsystem6;
+		if(port) {
+			subsystem6 = new Subsystem("56-1", subsystemIndex++, 4, 5, "0");
+			subsystem6.AddIndicator(new Lamp(13, 13, "Дорожка 1", false, false, false, true, 1, 4));
+			subsystem6.AddIndicator(new Lamp(37, 13, "Дорожка 2", false, false, false, true, 1, 4));
+			subsystem6.AddIndicator(new Lamp(63, 13, "Дорожка 3", false, false, false, true, 1, 4));
+			subsystem6.AddIndicator(new Lamp(87, 13, "Дорожка 4", false, false, false, true, 1, 4));
+			subsystem6.AddIndicator(new Lamp(13, 37, "Дорожка 5", false, false, false, true, 1, 4));
+			subsystem6.AddIndicator(new Lamp(37, 37, "Дорожка 6", false, false, false, true, 1, 4));
+			subsystem6.AddIndicator(new Lamp(63, 37, "Дорожка 7", false, false, false, true, 1, 4));
+			subsystem6.AddIndicator(new Lamp(87, 37, "Дорожка 8", false, false, false, true, 1, 4));
+			subsystem6.AddIndicator(new DimmerLamp(13, 63, "Беседка 1", false, false, false, true, 1, 4));
+			subsystem6.AddIndicator(new DimmerLamp(37, 63, "Беседка 2", false, false, false, true, 1, 4));
+			subsystem6.AddIndicator(new DimmerLamp(63, 63, "Беседка 3", false, false, false, true, 1, 4));
+			subsystem6.AddIndicator(new DimmerLamp(87, 63, "Беседка 4", false, false, false, true, 1, 4));
+			subsystem6.AddIndicator(new DimmerLamp(25, 87, "Фонтан 1", false, false, false, true, 1, 4));
+			subsystem6.AddIndicator(new DimmerLamp(50, 87, "Фонтан 2", false, false, false, true, 1, 4));
+			subsystem6.AddIndicator(new DimmerLamp(75, 87, "Фонтан 3", false, false, false, true, 1, 4));
+		}else {
+			subsystem6 = new Subsystem("56-1", subsystemIndex++, 6, 3, "0");
+			subsystem6.AddIndicator(new Lamp(8, 25, "Дорожка 1", false, false, false, true, 1, 4));
+			subsystem6.AddIndicator(new Lamp(22, 25, "Дорожка 2", false, false, false, true, 1, 4));
+			subsystem6.AddIndicator(new Lamp(36, 25, "Дорожка 3", false, false, false, true, 1, 4));
+			subsystem6.AddIndicator(new Lamp(50, 25, "Дорожка 4", false, false, false, true, 1, 4));
+			subsystem6.AddIndicator(new Lamp(64, 25, "Дорожка 5", false, false, false, true, 1, 4));
+			subsystem6.AddIndicator(new Lamp(78, 25, "Дорожка 6", false, false, false, true, 1, 4));
+			subsystem6.AddIndicator(new Lamp(92, 25, "Дорожка 7", false, false, false, true, 1, 4));
+			subsystem6.AddIndicator(new DimmerLamp(20, 50, "Беседка 1", false, false, false, true, 1, 4));
+			subsystem6.AddIndicator(new DimmerLamp(40, 50, "Беседка 2", false, false, false, true, 1, 4));
+			subsystem6.AddIndicator(new DimmerLamp(60, 50, "Беседка 3", false, false, false, true, 1, 4));
+			subsystem6.AddIndicator(new DimmerLamp(80, 50, "Беседка 4", false, false, false, true, 1, 4));
+			subsystem6.AddIndicator(new DimmerLamp(25, 75, "Фонтан 1", false, false, false, true, 1, 4));
+			subsystem6.AddIndicator(new DimmerLamp(50, 75, "Фонтан 2", false, false, false, true, 1, 4));
+			subsystem6.AddIndicator(new DimmerLamp(75, 75, "Фонтан 3", false, false, false, true, 1, 4));
+		}
 
 		m_cSubsystems.add(subsystem6);
 

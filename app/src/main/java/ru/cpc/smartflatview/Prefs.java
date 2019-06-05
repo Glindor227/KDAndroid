@@ -45,6 +45,12 @@ public class Prefs extends AppCompatPreferenceActivity
     private static final String OPT_EXIT = "exit" ;
     private static final boolean OPT_EXIT_DEF = true;
 
+    private static final String OPT_NEW_DIS = "new_dis" ;
+    private static final boolean OPT_NEW_DIS_DEF = true;
+
+    private static final String OPT_POST_DIS = "post_dis" ;
+    private static final boolean OPT_POST_DIS_DEF = true;
+
     private static final String OPT_MOBILE = "mobile" ;
     private static final boolean OPT_MOBILE_DEF = false;
 
@@ -82,6 +88,19 @@ public class Prefs extends AppCompatPreferenceActivity
         return PreferenceManager.getDefaultSharedPreferences(context)
                 .getBoolean(OPT_EXIT, OPT_EXIT_DEF);
     }
+
+    public static boolean getNewDis(Context context)
+    {
+        return PreferenceManager.getDefaultSharedPreferences(context)
+                .getBoolean(OPT_NEW_DIS, OPT_NEW_DIS_DEF);
+    }
+
+    public static boolean getPostDis(Context context)
+    {
+        return PreferenceManager.getDefaultSharedPreferences(context)
+                .getBoolean(OPT_POST_DIS, OPT_POST_DIS_DEF);
+    }
+
 
     public static boolean getMobile(Context context)
     {

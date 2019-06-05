@@ -3,6 +3,7 @@ package ru.cpc.smartflatview;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -43,8 +44,10 @@ public class LaunchScreenActivity extends AppCompatActivity
             //    throw new InvalidParameterException();
             Log.d("Glindor3","BackgroundTask doInBackground 2");
 
-            if(Config.DEMO)
-                pConfig = new Config();
+
+            if(Config.DEMO){
+                pConfig = new Config(getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT);
+            }
             else
             {
 //                if(importData != Uri.EMPTY)
@@ -63,7 +66,7 @@ public class LaunchScreenActivity extends AppCompatActivity
                     pConfig = Config.LoadXml(importData, LaunchScreenActivity.this);
                     if(pConfig == null || pConfig.m_cRooms.size() == 0)
                     {
-                        pConfig = new Config();
+                        pConfig = new Config(getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT);
 //                      LaunchScreenActivity.this.runOnUiThread(new Runnable()
 //                      {
 //                          public void run()
@@ -145,10 +148,16 @@ public class LaunchScreenActivity extends AppCompatActivity
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.d("Glindor3","LaunchScreenActivity onCreate start");
 
         super.onCreate(savedInstanceState);
 //        Transparent Status Bar
+        Log.d("Glindor3","LaunchScreenActivity onCreate start");
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            Log.d("Glindor55", "LaunchScreenActivity onCreate ORIENTATION_LANDSCAPE");
+        }
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
+            Log.d("Glindor55", "LaunchScreenActivity onCreate ORIENTATION_PORTRAIT");
+        }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             getWindow().getDecorView().setSystemUiVisibility(
@@ -203,8 +212,26 @@ public class LaunchScreenActivity extends AppCompatActivity
         }
         Log.d("Glindor3","LaunchScreenActivity onCreate 3");
 
+        Indicator.newDez = Prefs.getNewDis(this);
+        Indicator.posDez = Prefs.getPostDis(this);
+        Log.d("Glindor56", "INIT newDez = "+Indicator.newDez);
+        Log.d("Glindor56", "INIT posDez = "+Indicator.posDez);
+
+
         new BackgroundTask().execute(importData);
         Log.d("Glindor3","LaunchScreenActivity onCreate end");
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d("Glindor3","LaunchScreenActivity onCreate start");
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            Log.d("Glindor55", "LaunchScreenActivity onStart ORIENTATION_LANDSCAPE");
+        }
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
+            Log.d("Glindor55", "LaunchScreenActivity onStart ORIENTATION_PORTRAIT");
+        }
+
+    }
 }

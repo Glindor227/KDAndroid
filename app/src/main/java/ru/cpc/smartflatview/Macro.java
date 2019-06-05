@@ -11,8 +11,8 @@ public class Macro extends BaseMacro
 	public Macro(int iX, int iY, String sName, String sButtonName, boolean bMetaInd, boolean bProtected, boolean bDoubleScale, boolean bQuick, int iReaction, int iScale)
 	{
 		super(iX, iY,
-				newDez?R.drawable.macro_on:R.drawable.id112s,
-				newDez?R.drawable.macro_off:R.drawable.id111s,
+				newDez?(posDez?R.drawable.macro_on_p:R.drawable.macro_on):R.drawable.id112s,
+				newDez?(posDez?R.drawable.macro_off_p:R.drawable.macro_off):R.drawable.id111s,
 				1, sName, sButtonName, bMetaInd, bProtected, bDoubleScale, bQuick, iReaction, iScale);
 		// TODO Auto-generated constructor stub
 		m_bText2 = false;

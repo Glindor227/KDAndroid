@@ -1,8 +1,30 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <ListPreference android:key="start" android:entryValues="@array/start_screens_values" android:title="@string/start_screen" android:entries="@array/start_screens_labels" android:summary="@string/start_screen_summary" android:defaultValue="2">
+    <ListPreference
+        android:key="start"
+        android:entryValues="@array/start_screens_values"
+        android:title="@string/start_screen"
+        android:entries="@array/start_screens_labels"
+        android:summary="@string/start_screen_summary"
+        android:defaultValue="2">
     </ListPreference>
-    <CheckBoxPreference android:key="exit" android:summary="@string/exit_summary" android:title="@string/exit_title" android:defaultValue="true">
+    <CheckBoxPreference
+        android:key="exit"
+        android:summary="@string/exit_summary"
+        android:title="@string/exit_title"
+        android:defaultValue="true">
+    </CheckBoxPreference>
+    <CheckBoxPreference
+        android:key="new_dis"
+        android:summary="@string/sum_new_dis_indicator"
+        android:title="@string/new_dis_indicator"
+        android:defaultValue="true">
+    </CheckBoxPreference>
+    <CheckBoxPreference
+        android:key="post_dis"
+        android:summary="@string/sum_post_dis_indicator"
+        android:title="@string/post_dis_indicato"
+        android:defaultValue="true">
     </CheckBoxPreference>
 
 

@@ -13,13 +13,19 @@ import java.util.Random;
 
 public class Door extends Indicator 
 {
+	private static int id100 = newDez?(posDez?R.drawable.door_free_p:R.drawable.id102):R.drawable.id100;
+	private static int id102 = newDez?(posDez?R.drawable.door_free_p:R.drawable.id102):R.drawable.id102;
+	private static int id103 = newDez?(posDez?R.drawable.door_free_p:R.drawable.id102):R.drawable.id103;
+	private static int id105 = newDez?(posDez?R.drawable.door_free_p:R.drawable.id102):R.drawable.id105;
+	private static int id106 = newDez?(posDez?R.drawable.door_free_p:R.drawable.id102):R.drawable.id106;
+
 	public boolean m_bOpened = false;
 	public boolean m_bGuard = false;	
 	public boolean m_bAlarm = false;	
 	
 	public Door(int iX, int iY, String sName, boolean bMetaInd, boolean bProtected, boolean bDoubleScale, boolean bQuick, int iReaction, int iScale)
 	{
-		super(iX, iY, R.drawable.id102, 1, sName, bMetaInd, bProtected, bDoubleScale, bQuick, iReaction, iScale);
+		super(iX, iY, id102, 1, sName, bMetaInd, bProtected, bDoubleScale, bQuick, iReaction, iScale);
 	}
 
 	public String m_sVariableOpened = "-1";
@@ -137,23 +143,23 @@ public class Door extends Indicator
 		
 		if(m_bAlarm && m_pUI != null)
 		{
-			m_pUI.StartAnimation(R.drawable.id100);
+			m_pUI.StartAnimation(id100);
 			
 			if(m_bOpened)
-				iResId = R.drawable.id105;
+				iResId = id105;
 			else
-				iResId = R.drawable.id103;
+				iResId = id103;
 		}
 		else
 		{
 			if(m_bGuard)
-				iResId = R.drawable.id100;
+				iResId = id100;
 			else
 			{
 				if(m_bOpened)
-					iResId = R.drawable.id106;
+					iResId = id106;
 				else
-					iResId = R.drawable.id102;
+					iResId = id102;
 			}
 		}
 

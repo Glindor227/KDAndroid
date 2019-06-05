@@ -12,12 +12,16 @@ import java.io.IOException;
 
 public class Door2 extends Indicator 
 {
+	private static int door_unblock = newDez?(posDez?R.drawable.door_unblock_p:R.drawable.door_unblock_2):R.drawable.door_unblock;
+	private static int door_block = newDez?(posDez?R.drawable.door_block_p:R.drawable.door_block_2):R.drawable.door_block;
+	private static int door_free= newDez?(posDez?R.drawable.door_free_p:R.drawable.door_free_2):R.drawable.door_free;
+
 	public boolean m_bFireMode = false;
 	public boolean m_bBlock = false;	
 	
 	public Door2(int iX, int iY, String sName, boolean bMetaInd, boolean bProtected, boolean bDoubleScale, boolean bQuick, int iReaction, int iScale)
 	{
-		super(iX, iY, newDez?R.drawable.door_unblock_2:R.drawable.door_unblock, 1, sName, bMetaInd, bProtected, bDoubleScale, bQuick, iReaction, iScale);
+		super(iX, iY, door_unblock, 1, sName, bMetaInd, bProtected, bDoubleScale, bQuick, iReaction, iScale);
 	}
 
 	public String m_sVariableFire = "-1";
@@ -89,13 +93,13 @@ public class Door2 extends Indicator
 		int iResId = -1;
 		
 		if(m_bBlock)
-			iResId = newDez?R.drawable.door_block_2:R.drawable.door_block;
+			iResId = door_block;
 		else
 		{
 			if(m_bFireMode)
-				iResId = newDez?R.drawable.door_free_2:R.drawable.door_free;
+				iResId = door_free;
 			else
-				iResId = newDez?R.drawable.door_unblock_2:R.drawable.door_unblock;
+				iResId = door_unblock;
 		}
 
 		if(m_pUI == null)

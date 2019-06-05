@@ -9,9 +9,12 @@ import android.widget.SeekBar;
 
 public class DimmerLamp extends BaseRegulator 
 {
+	private static int on = newDez?(posDez?R.drawable.lamp_on_p:R.drawable.lamp_on):R.drawable.lamp03;
+	private static int off= newDez?(posDez?R.drawable.lamp_off_p:R.drawable.lamp_off):R.drawable.lamp04 ;
+
 	public DimmerLamp(int iX, int iY, String sName, boolean bMetaInd, boolean bProtected, boolean bDoubleScale, boolean bQuick, int iReaction, int iScale)
 	{
-		super(iX, iY, R.drawable.lamp02, 1, sName, bMetaInd, bProtected, bDoubleScale, bQuick, iReaction, iScale);
+		super(iX, iY, off, 1, sName, bMetaInd, bProtected, bDoubleScale, bQuick, iReaction, iScale);
 
 		m_fValueMin = 0;
 		m_fValueMax = 100;
@@ -111,7 +114,7 @@ public class DimmerLamp extends BaseRegulator
 		
 		if(m_bPower)
 		{
-			iResId = R.drawable.lamp01;
+			iResId = on;
 //			iResId = R.drawable.id055;
 //
 //			if(iBright < 10)
@@ -135,7 +138,7 @@ public class DimmerLamp extends BaseRegulator
 		}
 		else
 		{
-			iResId = R.drawable.lamp02;
+			iResId = off;
 //			iResId = R.drawable.id045;
 //
 //			if(iBright < 10)

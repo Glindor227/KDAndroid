@@ -11,8 +11,8 @@ public class Lamp extends BaseRelay
 	public Lamp(int iX, int iY, String sName, boolean bMetaInd, boolean bProtected, boolean bDoubleScale, boolean bQuick, int iReaction, int iScale)
 	{
 		super(iX, iY,
-				newDez?R.drawable.lamp_on:R.drawable.lamp03,
-				newDez?R.drawable.lamp_off:R.drawable.lamp04,
+				newDez?(posDez?R.drawable.lamp_on_p:R.drawable.lamp_on):R.drawable.lamp03,
+				newDez?(posDez?R.drawable.lamp_off_p:R.drawable.lamp_off):R.drawable.lamp04,
 				1, sName, bMetaInd, bProtected, bDoubleScale, bQuick, iReaction, iScale);
 		// TODO Auto-generated constructor stub
 	}

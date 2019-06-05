@@ -26,6 +26,8 @@ import android.view.animation.AnimationUtils;
 import android.view.inputmethod.EditorInfo;
 import android.widget.TextView;
 
+import static ru.cpc.smartflatview.Indicator.posDez;
+
 public class IndicatorUI extends ViewGroup 
 {
 	private static final String TAG = "SMARTFLAT" ;
@@ -284,14 +286,14 @@ public class IndicatorUI extends ViewGroup
 		if(m_pIndicator.m_bMetaIndicator)
 		{
 			m_pCog = new View(context);
-			m_pCog.setBackgroundResource(R.drawable.shesterenka);
+			m_pCog.setBackgroundResource(Indicator.newDez?(Indicator.posDez?R.drawable.shesterenka_p:R.drawable.shesterenka_2):R.drawable.shesterenka);
 			addView(m_pCog);
 		}
 		
 		if(m_pIndicator.m_bProtected)
 		{
 			m_pShield = new View(context);
-			m_pShield.setBackgroundResource(R.drawable.shield);
+			m_pShield.setBackgroundResource(Indicator.newDez?(Indicator.posDez?R.drawable.shield_p:R.drawable.shield_2):R.drawable.shield);
 			addView(m_pShield);
 		}
 		

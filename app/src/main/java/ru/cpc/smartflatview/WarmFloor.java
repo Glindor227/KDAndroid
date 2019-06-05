@@ -10,8 +10,8 @@ public class WarmFloor extends BaseRelay
 	public WarmFloor(int iX, int iY, String sName, boolean bMetaInd, boolean bProtected, boolean bDoubleScale, boolean bQuick, int iReaction, int iScale)
 	{
 		super(iX, iY,
-				newDez?R.drawable.pol_on:R.drawable.id087,
-				newDez?R.drawable.pol_off:R.drawable.id088,
+				newDez?(posDez?R.drawable.pol_on_p:R.drawable.pol_on):R.drawable.id087,
+				newDez?(posDez?R.drawable.pol_off_p:R.drawable.pol_off):R.drawable.id088,
 				5, sName, bMetaInd, bProtected, bDoubleScale, bQuick, iReaction, iScale);
 		// TODO Auto-generated constructor stub
 	}

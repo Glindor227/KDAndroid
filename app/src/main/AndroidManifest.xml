@@ -27,7 +27,7 @@
             android:name=".LaunchScreenActivity"
             android:label="@string/title_activity_launch_screen"
             android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait"
+            android:screenOrientation="behind"
             android:configChanges="keyboardHidden|orientation|screenSize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -67,23 +67,14 @@
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar"
-
             android:configChanges="keyboardHidden|orientation|screenSize" />
         <activity
             android:name=".Prefs"
             android:label="@string/title_activity_settings"
-            android:screenOrientation="portrait"
             android:configChanges="keyboardHidden|orientation|screenSize" />
         <activity
             android:name=".LoginActivity"
             android:label="@string/title_activity_login"
-            android:screenOrientation="portrait"
-            android:configChanges="keyboardHidden|orientation|screenSize" />
-        <activity
-            android:name=".LogActivity"
-            android:label="@string/title_activity_log"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait"
             android:configChanges="keyboardHidden|orientation|screenSize" />
         <service
             android:name=".CheckAlarmService"

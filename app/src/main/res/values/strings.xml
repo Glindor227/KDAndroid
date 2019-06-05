@@ -123,7 +123,7 @@
         "when a user tries to pick up one of cards.\n\n"
     </string>
     <string name="appName">SMARTFLAT VIEW</string>
-    <string name="appVersion">Version 2.7.1</string>
+    <string name="appVersion">Version 2.8.2</string>
     <string name="appLogoDescription">LOGO</string>
     <string name="passwordDefault">1234</string>
     <string name="indicatorPower">Питание</string>
@@ -207,5 +207,9 @@
     <string name="logMobileNotAllowed">Использование мобильного интернета не разрешено!</string>
     <string name="sdOpen">Открыто</string>
     <string name="menuDebug">!Отладка!</string>
+    <string name="sum_new_dis_indicator">Показывать индикаторы нового дизайна</string>
+    <string name="new_dis_indicator">Новые индикаторы</string>
+    <string name="sum_post_dis_indicator">Показывать индикаторы пастельного дизайна</string>
+    <string name="post_dis_indicato">Пастельные индикаторы</string>
 
 </resources>
